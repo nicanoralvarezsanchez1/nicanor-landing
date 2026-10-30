@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { completarConsejeria, guardarContacto } from "@/app/actions";
+import { completarConsejeria, guardarContacto, type ContactoInput } from "@/app/actions";
 import { CalendlyInline } from "@/components/form/CalendlyInline";
 import {
   CONTACTO_VACIO,
@@ -48,6 +48,8 @@ export function ConsejeriaForm() {
   const [enviando, setEnviando] = useState(false);
   const [resultado, setResultado] = useState<{ optimizar: boolean } | null>(null);
   const leadId = useRef<string | null>(null);
+  // Lo que se mandó en el paso de contacto, por si el servidor no lo tiene en memoria (sin Supabase).
+  const respaldo = useRef<ContactoInput | undefined>(undefined);
 
   async function enviarContacto(e: React.FormEvent) {
     e.preventDefault();
@@ -57,14 +59,16 @@ export function ConsejeriaForm() {
     // Si vuelve atrás y avanza otra vez, no se crea un segundo registro.
     if (leadId.current) return setPaso(1);
     setEnviando(true);
-    const res = await guardarContacto({
+    const envio: ContactoInput = {
       ruta: "consejeria",
       nombre: contacto.nombre,
       email: contacto.email,
       whatsapp: whatsappCompleto(contacto),
       url: window.location.href,
       atribucion: getAttribution(),
-    });
+    };
+    respaldo.current = envio;
+    const res = await guardarContacto(envio);
     setEnviando(false);
     if (!res.ok) return setError(res.error);
     leadId.current = res.id;
@@ -84,7 +88,7 @@ export function ConsejeriaForm() {
       quienBusca: datos.quienBusca,
       urgencia: datos.urgencia,
       disposicion,
-    });
+    }, respaldo.current);
     setEnviando(false);
     if (!res.ok) return setError(res.error);
     if (res.optimizar) {

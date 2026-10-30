@@ -4,7 +4,7 @@ import { after } from "next/server";
 import { headers } from "next/headers";
 import { sendMetaEvent } from "@/lib/meta/capi";
 import { nivelConsejeria, nivelDiagnostico, optimizarConMeta } from "@/lib/leads/calificacion";
-import { getLead, insertLead, logEstado, updateLead, type LeadRow } from "@/lib/leads/store";
+import { almacenamiento, getLead, insertLead, logEstado, updateLead, type LeadInsert, type LeadRow } from "@/lib/leads/store";
 import {
   DISPOSICION_OPTIONS,
   PROBLEMA_OPTIONS,
@@ -62,7 +62,7 @@ function userDataDe(lead: LeadRow) {
 
 // --- Paso de contacto (las dos rutas) -----------------------------------------
 
-interface ContactoInput {
+export interface ContactoInput {
   ruta: Ruta;
   nombre: string;
   email: string;
@@ -81,7 +81,10 @@ export type ContactoResult =
  * Guarda el contacto apenas la persona lo deja, antes de las demás preguntas,
  * para no perderla si abandona. Queda sin `completed_at` hasta terminar.
  */
-export async function guardarContacto(input: ContactoInput): Promise<ContactoResult> {
+/** Valida el contacto y arma la fila. Se usa al guardarlo y al reconstruirlo sin base de datos. */
+async function armarLead(
+  input: ContactoInput,
+): Promise<{ ok: true; fila: LeadInsert; diagnostico: ReturnType<typeof calcularDiagnostico> | null } | { ok: false; error: string }> {
   const nombre = corto(input.nombre, 80);
   const email = corto(input.email, 160)?.toLowerCase() ?? null;
   const whatsapp = (typeof input.whatsapp === "string" ? input.whatsapp : "").replace(/[^\d+]/g, "").slice(0, 20);
@@ -98,8 +101,10 @@ export async function guardarContacto(input: ContactoInput): Promise<ContactoRes
 
   const a = input.atribucion ?? {};
   const red = await datosDeRed();
-  try {
-    const id = await insertLead({
+  return {
+    ok: true,
+    diagnostico,
+    fila: {
       ruta: input.ruta,
       nombre,
       email,
@@ -123,7 +128,16 @@ export async function guardarContacto(input: ContactoInput): Promise<ContactoRes
       client_ip: red.ip,
       user_agent: red.userAgent,
       event_source_url: corto(input.url, 500),
-    });
+    },
+  };
+}
+
+export async function guardarContacto(input: ContactoInput): Promise<ContactoResult> {
+  const armado = await armarLead(input);
+  if (!armado.ok) return armado;
+  const { fila, diagnostico } = armado;
+  try {
+    const id = await insertLead(fila);
     return diagnostico ? { ok: true, id, ...diagnostico } : { ok: true, id };
   } catch (error) {
     console.error("Error guardando contacto:", error);
@@ -132,6 +146,19 @@ export async function guardarContacto(input: ContactoInput): Promise<ContactoRes
 }
 
 // --- Cierre de cada ruta ------------------------------------------------------
+
+/**
+ * Busca el lead. Sin Supabase, cada paso puede caer en un servidor distinto de Vercel con su
+ * propia memoria; entonces se rearma con el contacto que el navegador vuelve a mandar.
+ */
+async function buscarLead(leadId: string, respaldo?: ContactoInput): Promise<LeadRow | null> {
+  const lead = await getLead(leadId);
+  if (lead || almacenamiento !== "memoria" || !respaldo) return lead;
+  const armado = await armarLead(respaldo);
+  if (!armado.ok) return null;
+  await insertLead({ ...armado.fila, id: leadId });
+  return getLead(leadId);
+}
 
 export type CompletarResult = { ok: true; nivel: Nivel; optimizar: boolean } | { ok: false; error: string };
 
@@ -175,7 +202,11 @@ interface ConsejeriaInput {
   disposicion: Disposicion;
 }
 
-export async function completarConsejeria(leadId: string, data: ConsejeriaInput): Promise<CompletarResult> {
+export async function completarConsejeria(
+  leadId: string,
+  data: ConsejeriaInput,
+  respaldo?: ContactoInput,
+): Promise<CompletarResult> {
   if (
     !SITUACION_OPTIONS.includes(data.situacion) ||
     !PROBLEMA_OPTIONS.includes(data.problema) ||
@@ -185,7 +216,7 @@ export async function completarConsejeria(leadId: string, data: ConsejeriaInput)
   ) {
     return { ok: false, error: "Selecciona una opción válida." };
   }
-  const lead = await getLead(leadId);
+  const lead = await buscarLead(leadId, respaldo);
   if (!lead || lead.ruta !== "consejeria") return { ok: false, error: ERROR_GUARDAR };
 
   const nivel = nivelConsejeria(data.urgencia, data.disposicion);
@@ -205,11 +236,12 @@ export async function completarConsejeria(leadId: string, data: ConsejeriaInput)
 export async function completarDiagnostico(
   leadId: string,
   data: { quienBusca: QuienBusca; disposicion: Disposicion },
+  respaldo?: ContactoInput,
 ): Promise<CompletarResult> {
   if (!QUIEN_BUSCA_OPTIONS.includes(data.quienBusca) || !DISPOSICION_OPTIONS.includes(data.disposicion)) {
     return { ok: false, error: "Selecciona una opción válida." };
   }
-  const lead = await getLead(leadId);
+  const lead = await buscarLead(leadId, respaldo);
   if (!lead || lead.ruta !== "diagnostico" || !lead.perfil) return { ok: false, error: ERROR_GUARDAR };
 
   const nivel = nivelDiagnostico(lead.perfil as Perfil, data.disposicion);

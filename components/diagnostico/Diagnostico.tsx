@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { completarDiagnostico, guardarContacto } from "@/app/actions";
+import { completarDiagnostico, guardarContacto, type ContactoInput } from "@/app/actions";
 import { CalendlyInline } from "@/components/form/CalendlyInline";
 import {
   CONTACTO_VACIO,
@@ -58,6 +58,8 @@ export function Diagnostico() {
   const [error, setError] = useState<string | null>(null);
   const [enviando, setEnviando] = useState(false);
   const leadId = useRef<string | null>(null);
+  // Lo que se mandó en el paso de contacto, por si el servidor no lo tiene en memoria (sin Supabase).
+  const respaldo = useRef<ContactoInput | undefined>(undefined);
 
   const primerNombre = contacto.nombre.trim().split(/\s+/)[0];
 
@@ -81,7 +83,7 @@ export function Diagnostico() {
     setError(null);
     if (leadId.current) return setPantalla({ tipo: "quien" });
     setEnviando(true);
-    const res = await guardarContacto({
+    const envio: ContactoInput = {
       ruta: "diagnostico",
       nombre: contacto.nombre,
       email: contacto.email,
@@ -89,7 +91,9 @@ export function Diagnostico() {
       url: window.location.href,
       atribucion: getAttribution(),
       respuestas: respuestas as number[],
-    });
+    };
+    respaldo.current = envio;
+    const res = await guardarContacto(envio);
     setEnviando(false);
     if (!res.ok) return setError(res.error);
     leadId.current = res.id;
@@ -108,7 +112,7 @@ export function Diagnostico() {
     if (!leadId.current || !quien) return;
     setEnviando(true);
     setError(null);
-    const res = await completarDiagnostico(leadId.current, { quienBusca: quien, disposicion: d });
+    const res = await completarDiagnostico(leadId.current, { quienBusca: quien, disposicion: d }, respaldo.current);
     setEnviando(false);
     if (!res.ok) return setError(res.error);
     if (res.optimizar) {

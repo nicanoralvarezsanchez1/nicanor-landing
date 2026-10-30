@@ -72,7 +72,7 @@ export async function insertLead(data: LeadInsert): Promise<string> {
   exigirConfig();
   if (!configurado) {
     const ahora = new Date().toISOString();
-    const id = randomUUID();
+    const id = data.id ?? randomUUID();
     memoria.set(id, {
       situacion: null, problema: null, quien_busca: null, urgencia: null, disposicion: null,
       respuestas: null, puntaje: null, perfil: null, alerta_individual: false, alerta_crisis: false,
@@ -81,7 +81,7 @@ export async function insertLead(data: LeadInsert): Promise<string> {
       origen: null, fbclid: null, fbp: null, fbc: null, user_agent: null, client_ip: null, event_source_url: null,
       ...data, id, created_at: ahora, updated_at: ahora,
     } as LeadRow);
-    console.info("[dev] lead creado", id, data.ruta, data.nombre);
+    console.info("[memoria] lead creado", id, data.ruta);
     return id;
   }
   const { data: row, error } = await supabase().from("leads").insert(data).select("id").single();
@@ -95,7 +95,7 @@ export async function updateLead(id: string, data: Partial<LeadRow>): Promise<vo
     const actual = memoria.get(id);
     if (!actual) throw new Error("lead no encontrado");
     memoria.set(id, { ...actual, ...data, updated_at: new Date().toISOString() });
-    console.info("[dev] lead actualizado", id, Object.keys(data).join(","));
+    console.info("[memoria] lead actualizado", id, Object.keys(data).join(","));
     return;
   }
   const { error } = await supabase().from("leads").update(data).eq("id", id);

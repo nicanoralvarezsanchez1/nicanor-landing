@@ -52,6 +52,34 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
     { t: "Pacientes", v: n((l) => l.estado === "paciente") },
   ];
 
+  // Calidad por anuncio: qué anuncio (utm_content) trae calificados, agendas y pacientes.
+  const fuenteDe = (l: LeadRow) =>
+    l.utm_content
+      ? l.utm_term
+        ? `${l.utm_content} · ${l.utm_term}`
+        : l.utm_content
+      : l.utm_campaign
+        ? `${l.utm_campaign} (sin anuncio)`
+        : l.origen
+          ? `Sin anuncio · ${l.origen}`
+          : "Sin rastreo";
+  const pct = (a: number, b: number) => (b ? Math.round((a / b) * 100) : 0);
+  const porAnuncio = [...new Set(todos.map(fuenteDe))]
+    .map((k) => {
+      const suyos = todos.filter((l) => fuenteDe(l) === k);
+      const c = (pred: (l: LeadRow) => boolean) => suyos.filter(pred).length;
+      return {
+        k,
+        n: suyos.length,
+        cal: c((l) => l.nivel === "calificado"),
+        tib: c((l) => l.nivel === "tibio"),
+        fri: c((l) => l.nivel === "frio"),
+        ag: c((l) => Boolean(l.agendado_at)),
+        pac: c((l) => l.estado === "paciente"),
+      };
+    })
+    .sort((a, b) => b.cal - a.cal || b.n - a.n);
+
   const enlace = (cambio: Filtros) => {
     const p = new URLSearchParams(Object.entries({ ...f, ...cambio }).filter(([, v]) => v) as [string, string][]);
     return `/admin${p.size ? `?${p}` : ""}`;
@@ -80,6 +108,43 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
           </div>
         ))}
       </section>
+
+      {todos.length > 0 && (
+        <section className={s.anuncios}>
+          <h2>Calidad por anuncio</h2>
+          <p>Qué anuncio y conjunto trae calificados, agendas y pacientes. «Sin anuncio» son visitas sin el nombre del anuncio en el enlace.</p>
+          <div className={s.tablaScroll}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Anuncio · conjunto</th>
+                  <th>Contactos</th>
+                  <th>Calificados</th>
+                  <th>Tibios</th>
+                  <th>Fríos</th>
+                  <th>Agendaron</th>
+                  <th>Pacientes</th>
+                </tr>
+              </thead>
+              <tbody>
+                {porAnuncio.map((r) => (
+                  <tr key={r.k}>
+                    <td title={r.k}>{r.k}</td>
+                    <td>{r.n}</td>
+                    <td>
+                      {r.cal} ({pct(r.cal, r.n)}%)
+                    </td>
+                    <td>{r.tib}</td>
+                    <td>{r.fri}</td>
+                    <td>{r.ag}</td>
+                    <td>{r.pac}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
 
       <nav className={s.filtros} aria-label="Filtros">
         <span>Ruta:</span>
@@ -151,7 +216,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                     {l.alerta_individual && (<><dt>Nota</dt><dd>Posible necesidad de atención individual (ansiedad o desgaste emocional)</dd></>)}
                     {l.agendado_at && (<><dt>Agendó</dt><dd>{fecha(l.agendado_at)}</dd></>)}
                     <dt>Origen</dt>
-                    <dd>{[l.utm_source, l.utm_campaign, l.utm_content].filter(Boolean).join(" · ") || l.origen || "Sin datos"}</dd>
+                    <dd>{[l.utm_source, l.utm_campaign, l.utm_content, l.utm_term].filter(Boolean).join(" · ") || l.origen || "Sin datos"}</dd>
                     <dt>Estado</dt><dd>{ESTADO_LABEL[l.estado]}</dd>
                   </dl>
                   <Notas leadId={l.id} inicial={l.notas} />

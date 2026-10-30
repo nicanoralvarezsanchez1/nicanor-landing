@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 const COLUMNAS = [
   "created_at", "ruta", "nombre", "whatsapp", "email", "nivel", "estado", "perfil", "puntaje",
   "situacion", "problema", "quien_busca", "urgencia", "disposicion", "completed_at", "agendado_at",
-  "utm_source", "utm_campaign", "utm_content", "origen", "notas",
+  "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "origen", "fbclid", "notas",
 ] as const;
 
 const celda = (v: unknown) => {

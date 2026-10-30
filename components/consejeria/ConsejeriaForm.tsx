@@ -165,7 +165,7 @@ export function ConsejeriaForm() {
 
       {paso > 0 && paso < TOTAL && !enviando && (
         <button type="button" className={s.volver} onClick={() => setPaso(paso - 1)}>
-          ← Volver
+          Volver
         </button>
       )}
 

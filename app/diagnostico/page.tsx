@@ -23,7 +23,7 @@ export default function DiagnosticoPage() {
         <Diagnostico />
       </main>
       <footer className={s.pie}>
-        Este autodiagnóstico es orientativo y no reemplaza una evaluación profesional. · <Link href="/privacidad">Privacidad</Link>
+        Este autodiagnóstico es orientativo y no reemplaza una evaluación profesional. <Link href="/privacidad">Privacidad</Link>
       </footer>
     </div>
   );

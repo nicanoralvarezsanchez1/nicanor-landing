@@ -1,9 +1,9 @@
 .tarjeta {
   background: var(--blanco);
   border: 1px solid var(--borde);
-  border-radius: var(--radio-card);
-  box-shadow: var(--sombra);
-  padding: 28px 24px;
+  border-radius: 6px;
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.55);
+  padding: 30px 26px;
 }
 
 .progreso { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
@@ -25,7 +25,7 @@
   text-align: left;
   background: var(--marfil);
   border: 1.5px solid var(--borde);
-  border-radius: 10px;
+  border-radius: 4px;
   color: var(--tinta);
   font-size: 15px;
   line-height: 1.35;
@@ -36,9 +36,9 @@
 .opcion[aria-pressed="true"] { border-color: var(--vino); background: #fff; box-shadow: inset 0 0 0 1px var(--vino); }
 .letra {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  border-radius: 3px;
   display: grid;
   place-items: center;
   background: var(--marfil-hondo);
@@ -55,7 +55,7 @@
   min-height: 50px;
   padding: 12px 14px;
   border: 1.5px solid var(--borde);
-  border-radius: 10px;
+  border-radius: 4px;
   background: #fff;
   color: var(--tinta);
   font: inherit;

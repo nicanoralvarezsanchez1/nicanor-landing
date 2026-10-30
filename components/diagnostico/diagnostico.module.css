@@ -3,14 +3,14 @@
   max-width: 620px;
   margin: 0 auto;
   background: var(--blanco);
-  border-radius: var(--radio-card);
+  border-radius: 6px;
   box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.55);
   padding: 30px 22px;
 }
 .intro { display: grid; gap: 16px; }
 .titulo { font-size: clamp(32px, 6vw, 44px); color: var(--noche); }
 .texto { color: var(--tinta-suave); font-size: 16.5px; margin-bottom: 14px; }
-.numero { font-size: 13px; color: var(--oro); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.numero { font-size: 14px; color: var(--vino); font-weight: 500; margin-bottom: 8px; }
 .autor { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--tinta-suave); border-top: 1px solid var(--borde); padding-top: 16px; }
 .avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex-shrink: 0; }
 

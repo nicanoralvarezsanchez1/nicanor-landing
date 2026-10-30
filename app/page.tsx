@@ -1,39 +1,47 @@
 import Image from "next/image";
+import Link from "next/link";
+import { BarraMovil } from "@/components/BarraMovil";
 import { ConsejeriaForm } from "@/components/consejeria/ConsejeriaForm";
-import { Encabezado, Pie } from "@/components/Encabezado";
 import { VistaContenido } from "@/components/VistaContenido";
 import s from "./landing.module.css";
 
-const DOLORES = [
-  "Discuten una y otra vez por lo mismo, y nada cambia.",
-  "Ya no conversan: solo coordinan la casa, los hijos y las cuentas.",
-  "Piensas en separarte, pero algo te detiene.",
-  "Tu pareja no quiere ir a terapia y no sabes por dónde empezar.",
-  "Se dijeron cosas que todavía duelen.",
+const PENSAMIENTOS = [
+  "Ya no sé cómo hablarle sin que terminemos peleando.",
+  "Nos llevamos bien para la casa y los chicos, pero ya no somos pareja.",
+  "Él no quiere ir a terapia, y yo sola no sé por dónde empezar.",
+  "A veces pienso que separarnos sería lo más tranquilo.",
 ];
 
-const BENEFICIOS = [
-  { n: "01", t: "Entiendes qué les está pasando", d: "Ponemos nombre a lo que viven y vemos por qué se repite, sin buscar culpables." },
-  { n: "02", t: "Te llevas un primer paso concreto", d: "Algo que puedes aplicar esa misma semana para bajar la tensión en casa." },
-  { n: "03", t: "Sabes qué camino tienen", d: "Si tu caso necesita terapia, cómo sería: individual o en pareja, y por cuánto tiempo." },
+const MINUTOS = [
+  {
+    rango: "Minuto 1 a 10",
+    titulo: "Me cuentas qué está pasando",
+    texto: "Sin juicios y sin apuro. Lo que viven, desde cuándo y qué ya intentaron.",
+  },
+  {
+    rango: "Minuto 10 a 20",
+    titulo: "Ponemos nombre al patrón",
+    texto: "Vemos por qué la misma discusión se repite y qué hay debajo de ella.",
+  },
+  {
+    rango: "Minuto 20 a 30",
+    titulo: "Te llevas un primer paso y un camino",
+    texto: "Algo concreto para esa misma semana y, si lo necesitan, cómo sería un proceso.",
+  },
 ];
 
 const FAQ = [
   {
-    p: "¿La sesión de orientación de verdad es gratuita?",
-    r: "Sí. Son 30 minutos por videollamada, sin costo y sin compromiso. Si después decides empezar un proceso, ahí conversamos opciones y precios.",
-  },
-  {
-    p: "¿Puedo ir aunque mi pareja no quiera?",
-    r: "Sí. Muchas personas empiezan solas. Cuando uno de los dos cambia su forma de responder, la relación se mueve, y a veces la pareja se suma después.",
+    p: "¿La sesión de orientación es realmente gratuita?",
+    r: "Sí. Son 30 minutos por videollamada, sin costo y sin compromiso. Si después decides empezar un proceso, conversamos las opciones en ese momento.",
   },
   {
     p: "Estoy pensando en separarme. ¿Me vas a convencer de que no lo haga?",
-    r: "No. La idea es que mires tu relación completa, con lo que duele y con lo que todavía funciona, para que la decisión que tomes sea con claridad y no desde el agotamiento.",
+    r: "No. La idea es que mires tu relación completa, con lo que duele y con lo que todavía funciona, para que la decisión que tomes sea clara y no nazca del agotamiento.",
   },
   {
     p: "¿Cómo entra la fe en el proceso?",
-    r: "Si la fe es importante para ti, tiene lugar en la sesión: no tienes que explicarla ni dejarla de lado. Trabajo con psicología basada en evidencia, integrada con la mirada católica de la persona.",
+    r: "Si la fe es importante para ti, tiene lugar en la conversación. No tienes que explicarla ni dejarla de lado. Trabajo con psicología basada en evidencia, integrada con la mirada católica de la persona.",
   },
   {
     p: "¿Es online o presencial?",
@@ -49,149 +57,143 @@ export default function ConsejeriaPage() {
   return (
     <>
       <VistaContenido nombre="Landing Consejería Nicanor" />
-      <Encabezado cta="Agenda gratis" href="#agenda" />
+
+      <header className={s.header}>
+        <div className={`contenedor ${s.headerFila}`}>
+          <Link href="/" aria-label="Nicanor Álvarez, psicólogo">
+            <Image src="/logo.png" alt="Nicanor Álvarez, psicólogo" width={600} height={275} className={s.logo} priority />
+          </Link>
+          <a className={s.headerLink} href="#agenda">
+            Agendar sesión gratuita
+          </a>
+        </div>
+      </header>
 
       <main>
         <section className={s.hero}>
           <div className={`contenedor ${s.heroGrid}`}>
             <div className={s.heroTexto}>
-              <span className="etiqueta">Consejería de pareja · Online y presencial en Lima</span>
-              <h1 className={s.h1}>
-                ¿Estás pensando en separarte? <em>Antes de decidir, mira tu relación completa.</em>
-              </h1>
+              <p className={s.pregunta}>¿Estás pensando en separarte?</p>
+              <h1 className={s.h1}>Antes de decidir, conversemos treinta minutos.</h1>
               <p className={s.bajada}>
-                Agenda una sesión de consejería de pareja gratuita de 30 minutos. Es el primer paso para entender qué les está
-                pasando y decidir con claridad, con lo que duele y con lo que todavía funciona.
+                Una sesión de consejería de pareja gratuita para entender qué les está pasando y decidir con claridad, con lo que
+                duele y con lo que todavía funciona.
               </p>
-              <ul className={s.chips}>
-                <li>Gratuita · 30 min</li>
-                <li>Por videollamada</li>
-                <li>Puedes venir aunque tu pareja no quiera</li>
-              </ul>
+              <p className={s.condiciones}>Por videollamada, sin costo. Puedes venir aunque tu pareja no quiera.</p>
               <div className={s.autor}>
-                <Image src="/nicanor.jpg" alt="Nicanor Álvarez" width={56} height={56} className={s.avatar} />
-                <div>
-                  <strong>Nicanor Álvarez</strong>
-                  <span>Psicólogo católico · +13 años acompañando personas y parejas</span>
-                </div>
+                <Image src="/nicanor.jpg" alt="" width={52} height={52} className={s.avatar} />
+                <p>
+                  Con <strong>Nicanor Álvarez</strong>, psicólogo con más de 13 años acompañando a personas y parejas en Lima.
+                </p>
               </div>
             </div>
-            <div className={s.heroForm}>
+            <div className={s.heroForm} id="agenda">
               <ConsejeriaForm />
             </div>
           </div>
         </section>
 
-        <section className={s.seccion}>
-          <div className="contenedor">
-            <span className="etiqueta">¿Te reconoces?</span>
-            <h2 className={s.h2}>Por fuera todo sigue igual. Por dentro, ya no hay paz.</h2>
-            <ul className={s.dolores}>
-              {DOLORES.map((d) => (
-                <li key={d}>{d}</li>
+        <section className={s.pensamientos}>
+          <div className={`contenedor ${s.angosto}`}>
+            <h2 className={s.h2}>Lo que muchas personas piensan antes de escribirme</h2>
+            <ul>
+              {PENSAMIENTOS.map((p) => (
+                <li key={p}>{p}</li>
               ))}
             </ul>
-            <p className={s.nota}>
-              Si te reconociste en alguna, no es que hayas fallado. Nadie nos enseñó a manejar esto, y se puede aprender.
+            <p className={s.respuesta}>
+              Si alguna de estas frases es tuya, no es que hayas fallado. Nadie nos enseñó a atravesar una crisis de pareja, y eso
+              se puede aprender.
             </p>
           </div>
         </section>
 
-        <section className={`${s.seccion} ${s.oscura}`}>
+        <section className={s.sesion}>
           <div className="contenedor">
-            <span className="etiqueta">Qué te llevas de la sesión</span>
-            <h2 className={s.h2}>Treinta minutos para salir con claridad</h2>
-            <div className={s.beneficios}>
-              {BENEFICIOS.map((b) => (
-                <article key={b.n} className={s.beneficio}>
-                  <span className={s.num}>{b.n}</span>
-                  <h3>{b.t}</h3>
-                  <p>{b.d}</p>
-                </article>
+            <div className={s.sesionCabecera}>
+              <h2 className={s.h2}>Qué pasa en los treinta minutos</h2>
+              <p>Una conversación con estructura, para que salgas con algo claro y no solo con desahogo.</p>
+            </div>
+            <ol className={s.linea}>
+              {MINUTOS.map((m) => (
+                <li key={m.rango}>
+                  <span className={s.rango}>{m.rango}</span>
+                  <h3>{m.titulo}</h3>
+                  <p>{m.texto}</p>
+                </li>
               ))}
-            </div>
-            <a className="btn" href="#agenda">
-              Quiero mi sesión gratuita
-            </a>
-          </div>
-        </section>
-
-        <section className={s.seccion}>
-          <div className={`contenedor ${s.sobre}`}>
-            <Image src="/nicanor.jpg" alt="Nicanor Álvarez, psicólogo" width={900} height={900} className={s.foto} />
-            <div>
-              <span className="etiqueta">Quién te acompaña</span>
-              <h2 className={s.h2}>Hola, soy Nicanor Álvarez</h2>
-              <p>
-                Soy psicólogo y hace más de 13 años acompaño a personas y parejas que sienten que su relación se está desgastando.
-                Trabajo con calma y sin juicios: primero entendemos qué pasa, después vamos a la raíz y practicamos nuevas formas
-                de relacionarse.
-              </p>
-              <p>
-                Si la fe es importante para ti, tiene lugar en la sesión. No tienes que explicarla ni dejarla de lado: la
-                integramos al proceso.
-              </p>
-              <ul className={s.datos}>
-                <li><strong>+13 años</strong> de experiencia</li>
-                <li><strong>Online</strong> y presencial en Lima</li>
-                <li><strong>Psicología</strong> integrada con la fe</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className={`${s.seccion} ${s.suave}`}>
-          <div className="contenedor">
-            <span className="etiqueta">Cómo funciona</span>
-            <h2 className={s.h2}>Empezar es más simple de lo que crees</h2>
-            <ol className={s.pasos}>
-              <li><strong>Dejas tus datos</strong><span>Un minuto, en el formulario de esta página.</span></li>
-              <li><strong>Eliges tu horario</strong><span>El día y la hora que te acomoden.</span></li>
-              <li><strong>Nos conectamos</strong><span>30 minutos por videollamada, sin costo.</span></li>
             </ol>
           </div>
         </section>
 
-        <section className={s.seccion}>
-          <div className="contenedor">
-            <div className={s.diagnostico}>
-              <div>
-                <span className="etiqueta">¿Todavía no sabes si necesitan ayuda?</span>
-                <h2 className={s.h2}>Haz el autodiagnóstico de tu relación</h2>
-                <p>Cinco preguntas, dos minutos. Descubre en qué etapa está tu relación y cuál es el siguiente paso.</p>
-              </div>
-              <a className="btn btn-claro" href="/diagnostico">
-                Hacer el autodiagnóstico
-              </a>
+        <section className={s.sobre}>
+          <div className={`contenedor ${s.sobreGrid}`}>
+            <div className={s.retrato}>
+              <Image src="/nicanor.jpg" alt="Nicanor Álvarez, psicólogo" width={900} height={900} />
+            </div>
+            <div className={s.sobreTexto}>
+              <h2 className={s.h2}>Hola, soy Nicanor.</h2>
+              <p>
+                Hace más de 13 años acompaño a personas y parejas que sienten que su relación se está desgastando. Mi trabajo es
+                ayudarles a entender qué les pasa, ir a la raíz y practicar otras formas de hablarse.
+              </p>
+              <p>
+                Si la fe es importante para ti, tiene lugar en la conversación. No tienes que explicarla ni dejarla de lado: la
+                integramos al proceso, con respeto y sin sermones.
+              </p>
+              <blockquote className={s.cita}>
+                Una mirada de la persona que deja fuera lo espiritual queda incompleta. Y una fe que deja fuera las emociones,
+                también.
+              </blockquote>
             </div>
           </div>
         </section>
 
-        <section className={`${s.seccion} ${s.suave}`}>
-          <div className={`contenedor ${s.faqWrap}`}>
-            <span className="etiqueta">Preguntas frecuentes</span>
-            <h2 className={s.h2}>Lo que suelen preguntarme</h2>
-            <div className={s.faq}>
-              {FAQ.map((f) => (
-                <details key={f.p}>
-                  <summary>{f.p}</summary>
-                  <p>{f.r}</p>
-                </details>
-              ))}
+        <section className={s.solo}>
+          <div className={`contenedor ${s.angosto}`}>
+            <h2 className={s.h2}>¿Y si tu pareja no quiere venir?</h2>
+            <p>
+              Es lo más común, y no es un impedimento. Muchas personas empiezan solas. Cuando uno de los dos cambia su manera de
+              responder, la relación se mueve, y a veces la pareja se suma después. La sesión de orientación es para ti.
+            </p>
+            <a className="btn" href="#agenda">
+              Agendar mi sesión gratuita
+            </a>
+          </div>
+        </section>
+
+        <section className={s.diagnostico}>
+          <div className={`contenedor ${s.diagnosticoFila}`}>
+            <div>
+              <h2 className={s.h3}>¿Todavía no sabes si necesitan ayuda?</h2>
+              <p>Cinco preguntas, dos minutos. Descubre en qué etapa está tu relación y cuál sería el siguiente paso.</p>
             </div>
+            <Link className="btn btn-claro" href="/diagnostico">
+              Hacer el autodiagnóstico
+            </Link>
+          </div>
+        </section>
+
+        <section className={s.faq}>
+          <div className={`contenedor ${s.angosto}`}>
+            <h2 className={s.h2}>Preguntas frecuentes</h2>
+            {FAQ.map((f) => (
+              <details key={f.p}>
+                <summary>{f.p}</summary>
+                <p>{f.r}</p>
+              </details>
+            ))}
             <p className={s.seguridad}>
-              Si en tu relación hay violencia o sientes que estás en riesgo, tu seguridad es lo primero. Llama a la Línea 100 o, si
-              es una emergencia, al 105.
+              Si en tu relación hay violencia o sientes que estás en riesgo, tu seguridad es lo primero. Llama a la Línea 100 o,
+              si es una emergencia, al 105.
             </p>
           </div>
         </section>
 
-        <section className={`${s.seccion} ${s.oscura} ${s.final}`}>
-          <div className="contenedor">
-            <h2 className={s.h2}>
-              De “ya no sé qué nos pasa” a <em>un primer paso claro.</em>
-            </h2>
-            <p>La sesión es gratuita y sin compromiso. Abro pocos espacios de orientación cada semana.</p>
+        <section className={s.cierre}>
+          <div className={`contenedor ${s.angosto}`}>
+            <h2 className={s.h1}>La conversación pendiente puede empezar esta semana.</h2>
+            <p>Abro pocos espacios de orientación cada semana. Es gratuita y sin compromiso.</p>
             <a className="btn" href="#agenda">
               Agendar mi sesión gratuita
             </a>
@@ -199,11 +201,19 @@ export default function ConsejeriaPage() {
         </section>
       </main>
 
-      <Pie />
+      <footer className={s.pie}>
+        <div className={`contenedor ${s.pieFila}`}>
+          <span>© {new Date().getFullYear()} Nicanor Álvarez, psicólogo. Lima, Perú.</span>
+          <span className={s.pieLinks}>
+            <Link href="/privacidad">Privacidad</Link>
+            <a href="https://www.instagram.com/nicanoralvarezpsicologo/" target="_blank" rel="noopener">
+              Instagram
+            </a>
+          </span>
+        </div>
+      </footer>
 
-      <a className={`btn ${s.barraMovil}`} href="#agenda">
-        Agenda tu sesión gratuita
-      </a>
+      <BarraMovil className={s.barraMovil} />
     </>
   );
 }

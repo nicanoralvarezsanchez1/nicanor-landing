@@ -43,10 +43,8 @@ button { font: inherit; }
 
 .etiqueta {
   display: inline-block;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--oro);
 }
 
@@ -55,14 +53,15 @@ button { font: inherit; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 52px;
-  padding: 14px 26px;
+  min-height: 54px;
+  padding: 15px 30px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--vino);
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
+  letter-spacing: 0.01em;
   text-decoration: none;
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
@@ -70,7 +69,7 @@ button { font: inherit; }
 .btn:hover { background: var(--vino-hover); }
 .btn:active { transform: scale(0.98); }
 .btn:disabled { opacity: 0.6; cursor: wait; }
-.btn-claro { background: transparent; color: var(--noche); border: 1.5px solid var(--noche); }
+.btn-claro { background: transparent; color: var(--noche); border: 1px solid var(--noche); }
 .btn-claro:hover { background: rgba(30, 43, 69, 0.06); }
 .btn-bloque { width: 100%; }
 

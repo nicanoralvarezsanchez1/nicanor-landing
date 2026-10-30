@@ -149,7 +149,7 @@ export function Diagnostico() {
     <div className={s.caja}>
       {pantalla.tipo === "intro" && (
         <div className={`${f.pantalla} ${s.intro}`}>
-          <span className="etiqueta">Autodiagnóstico de pareja · 2 minutos</span>
+          <span className="etiqueta">Autodiagnóstico de pareja, dos minutos</span>
           <h1 className={s.titulo}>¿En qué etapa está tu relación?</h1>
           <p className={s.texto}>
             Cinco preguntas para entender qué les está pasando y cuál es el siguiente paso. Al final recibes tu resultado y una
@@ -219,7 +219,7 @@ export function Diagnostico() {
       {(pantalla.tipo === "pregunta" || pantalla.tipo === "contacto" || pantalla.tipo === "quien" || pantalla.tipo === "disposicion") &&
         !enviando && (
           <button type="button" className={f.volver} onClick={volver}>
-            ← Volver
+            Volver
           </button>
         )}
 

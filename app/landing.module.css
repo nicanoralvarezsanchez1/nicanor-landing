@@ -1,126 +1,128 @@
-.hero { padding: 36px 0 48px; background: linear-gradient(180deg, var(--marfil) 0%, var(--marfil-hondo) 100%); }
-.heroGrid { display: grid; gap: 28px; align-items: start; }
-.heroTexto { display: grid; gap: 18px; }
-.h1 { font-size: clamp(32px, 5.4vw, 52px); font-weight: 700; color: var(--noche); }
-.h1 em { display: block; margin-top: 8px; font-style: italic; font-weight: 600; color: var(--vino); }
-.bajada { font-size: 16px; color: var(--tinta-suave); max-width: 560px; }
-@media (min-width: 860px) { .bajada { font-size: 18px; } }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
-.chips li {
-  font-size: 13.5px;
-  padding: 6px 12px;
-  border-radius: 99px;
-  background: var(--blanco);
-  border: 1px solid var(--borde);
-  color: var(--noche);
-}
-.autor { display: flex; align-items: center; gap: 12px; }
-.autor strong { display: block; color: var(--noche); }
-.autor span { display: block; font-size: 14px; color: var(--tinta-suave); }
-.avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: center 20%; border: 2px solid var(--blanco); }
-.heroForm { scroll-margin-top: 84px; }
+/* Dirección: la conversación pendiente de una pareja, de noche y en serio.
+   Azul noche dominante, marfil de apoyo, vino solo para la acción, oro solo en filetes. */
 
-.seccion { padding: 64px 0; }
-.h2 { font-size: clamp(27px, 4vw, 38px); margin: 10px 0 22px; color: var(--noche); }
-.h2 em { font-style: italic; color: var(--vino-claro); }
-.oscura { background: var(--noche); color: #e8eaf0; }
-.oscura .h2 { color: var(--marfil); }
-.suave { background: var(--marfil-hondo); }
+.header { position: sticky; top: 0; z-index: 20; background: var(--noche); border-bottom: 1px solid rgba(245, 239, 228, 0.1); }
+.headerFila { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { width: auto; height: 34px; filter: brightness(0) invert(1); }
+.headerLink { color: var(--marfil); font-size: 14px; text-decoration: none; border-bottom: 1px solid var(--oro); padding-bottom: 2px; }
 
-.dolores { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 10px; max-width: 760px; }
-.dolores li {
-  position: relative;
-  padding: 14px 16px 14px 46px;
-  background: var(--blanco);
-  border: 1px solid var(--borde);
-  border-radius: 10px;
-  font-size: 16.5px;
+/* ---------- Hero ---------- */
+.hero { background: var(--noche); color: var(--marfil); padding: 40px 0 56px; }
+.heroGrid { display: grid; gap: 36px; align-items: start; }
+.heroTexto { display: grid; gap: 20px; max-width: 560px; }
+.pregunta { font-size: 17px; color: var(--vino-claro); font-weight: 400; }
+.h1 {
+  font-size: clamp(38px, 6vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+  color: var(--marfil);
 }
-.dolores li::before {
+.bajada { font-size: 17px; line-height: 1.7; color: #d4d8e2; font-weight: 300; }
+.condiciones { font-size: 15px; color: #aeb5c6; }
+.autor { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid rgba(245, 239, 228, 0.14); }
+.autor p { font-size: 14.5px; color: #c3c9d6; line-height: 1.5; }
+.autor strong { color: var(--marfil); font-weight: 500; }
+.avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; object-position: center 22%; flex-shrink: 0; }
+.heroForm { scroll-margin-top: 80px; }
+
+/* ---------- Tipos comunes ---------- */
+.h2 { font-size: clamp(28px, 3.6vw, 40px); line-height: 1.12; letter-spacing: -0.01em; font-weight: 600; color: var(--noche); }
+.h3 { font-size: 26px; line-height: 1.2; font-weight: 600; color: var(--noche); }
+/* Mismo margen izquierdo que el resto de la página, con líneas de lectura cortas. */
+.angosto > * { max-width: 720px; }
+
+/* ---------- Pensamientos ---------- */
+.pensamientos { background: var(--marfil); padding: 80px 0; }
+.pensamientos ul { list-style: none; padding: 0; margin: 36px 0; }
+.pensamientos li {
+  font-family: var(--font-display), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(21px, 2.6vw, 27px);
+  line-height: 1.35;
+  color: var(--tinta);
+  padding: 18px 0;
+  max-width: 680px;
+}
+.pensamientos li::before { content: "“"; color: var(--oro); margin-right: 2px; }
+.pensamientos li::after { content: "”"; color: var(--oro); margin-left: 1px; }
+.respuesta { font-size: 17px; line-height: 1.7; color: var(--tinta-suave); max-width: 620px; }
+
+/* ---------- La sesión: línea de 30 minutos (el elemento memorable) ---------- */
+.sesion { background: var(--blanco); padding: 88px 0; }
+.sesionCabecera { max-width: 620px; margin-bottom: 48px; }
+.sesionCabecera p { margin-top: 14px; font-size: 17px; color: var(--tinta-suave); line-height: 1.7; }
+.linea { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; position: relative; }
+.linea li { position: relative; padding: 0 0 36px 36px; border-left: 3px solid var(--marfil-hondo); }
+.linea li:last-child { padding-bottom: 0; }
+.linea li::before {
   content: "";
   position: absolute;
-  left: 18px;
-  top: 50%;
-  width: 14px;
-  height: 14px;
-  margin-top: -7px;
+  left: -9px;
+  top: 2px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
-  border: 2px solid var(--vino);
-}
-.nota { font-family: var(--font-display), Georgia, serif; font-style: italic; font-size: 20px; color: var(--vino); max-width: 640px; }
-
-.beneficios { display: grid; gap: 14px; margin-bottom: 30px; }
-.beneficio { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: var(--radio-card); padding: 22px; }
-.beneficio h3 { color: var(--marfil); font-size: 21px; margin: 6px 0 8px; }
-.beneficio p { color: #c9cfdc; }
-.num { font-family: var(--font-display), Georgia, serif; color: var(--oro); font-size: 22px; font-weight: 700; }
-
-.sobre { display: grid; gap: 28px; align-items: center; }
-.sobre p { margin-bottom: 12px; color: var(--tinta-suave); font-size: 17px; }
-.foto { width: 100%; max-width: 420px; aspect-ratio: 1; object-fit: cover; border-radius: var(--radio-card); box-shadow: var(--sombra); }
-.datos { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
-.datos li { background: var(--blanco); border: 1px solid var(--borde); border-radius: 10px; padding: 10px 14px; font-size: 14px; }
-.datos strong { color: var(--vino); }
-
-.pasos { list-style: none; counter-reset: paso; padding: 0; margin: 0; display: grid; gap: 14px; }
-.pasos li {
-  counter-increment: paso;
-  position: relative;
-  display: grid;
-  gap: 2px;
-  padding: 18px 18px 18px 70px;
   background: var(--blanco);
-  border-radius: var(--radio-card);
-  border: 1px solid var(--borde);
+  border: 3px solid var(--vino);
 }
-.pasos li::before {
-  content: counter(paso);
-  position: absolute;
-  left: 18px;
-  top: 18px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--noche);
-  color: var(--marfil);
-  font-weight: 600;
-}
-.pasos strong { color: var(--noche); font-size: 17px; }
-.pasos span { color: var(--tinta-suave); }
+.rango { display: block; font-size: 14px; color: var(--vino); font-weight: 500; margin-bottom: 6px; }
+.linea h3 { font-size: 23px; line-height: 1.25; color: var(--noche); margin-bottom: 8px; }
+.linea p { color: var(--tinta-suave); line-height: 1.65; max-width: 420px; }
 
-.diagnostico {
-  display: grid;
-  gap: 18px;
-  align-items: center;
-  padding: 28px;
-  border-radius: var(--radio-card);
-  border: 1.5px solid var(--noche);
-  background: var(--blanco);
+/* ---------- Sobre Nicanor ---------- */
+.sobre { background: var(--marfil); padding: 0; overflow: hidden; }
+.sobreGrid { display: grid; gap: 0; align-items: end; }
+.retrato { background: var(--marfil-hondo); margin: 0 -20px; }
+.retrato img { width: 100%; height: auto; mix-blend-mode: multiply; display: block; }
+.sobreTexto { padding: 56px 0 64px; display: grid; gap: 18px; }
+.sobreTexto p { font-size: 17px; line-height: 1.75; color: var(--tinta-suave); font-weight: 300; }
+.cita {
+  margin: 10px 0 0;
+  padding: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--noche);
 }
-.diagnostico .h2 { margin-bottom: 8px; }
-.diagnostico p { color: var(--tinta-suave); }
 
-.faqWrap { max-width: 820px; }
-.faq { display: grid; gap: 10px; }
-.faq details { background: var(--blanco); border: 1px solid var(--borde); border-radius: 10px; padding: 0 18px; }
+/* ---------- Si tu pareja no quiere ---------- */
+.solo { background: var(--noche); color: #d4d8e2; padding: 88px 0; }
+.solo .h2 { color: var(--marfil); margin-bottom: 20px; }
+.solo p { font-size: 17px; line-height: 1.75; font-weight: 300; margin-bottom: 32px; }
+
+/* ---------- Diagnóstico ---------- */
+.diagnostico { background: var(--marfil); padding: 56px 0; border-bottom: 1px solid var(--borde); }
+.diagnosticoFila { display: grid; gap: 22px; align-items: center; }
+.diagnosticoFila p { color: var(--tinta-suave); margin-top: 8px; line-height: 1.6; }
+
+/* ---------- FAQ ---------- */
+.faq { background: var(--marfil); padding: 80px 0; }
+.faq .h2 { margin-bottom: 24px; }
+.faq details { border-bottom: 1px solid var(--borde); }
 .faq summary {
   cursor: pointer;
   list-style: none;
-  padding: 16px 28px 16px 0;
-  font-weight: 600;
+  padding: 20px 36px 20px 0;
+  font-size: 17px;
+  font-weight: 500;
   color: var(--noche);
   position: relative;
 }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; position: absolute; right: 0; top: 14px; font-size: 22px; color: var(--vino); }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 16px; font-size: 24px; font-weight: 300; color: var(--vino); }
 .faq details[open] summary::after { content: "–"; }
-.faq details p { padding: 0 0 16px; color: var(--tinta-suave); }
-.seguridad { margin-top: 20px; font-size: 14px; color: var(--tinta-suave); }
+.faq details p { padding: 0 0 22px; color: var(--tinta-suave); line-height: 1.7; max-width: 640px; }
+.seguridad { margin-top: 28px; font-size: 14px; color: var(--tinta-suave); line-height: 1.6; }
 
-.final { text-align: center; }
-.final p { margin: 0 auto 26px; max-width: 520px; color: #c9cfdc; font-size: 17px; }
+/* ---------- Cierre ---------- */
+.cierre { background: var(--noche); padding: 96px 0; text-align: left; }
+.cierre p { color: #c3c9d6; font-size: 17px; margin: 20px 0 32px; font-weight: 300; }
+
+.pie { background: var(--noche-hondo); color: #9aa3b8; font-size: 13px; padding: 26px 0 92px; }
+.pieFila { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; }
+.pieLinks { display: flex; gap: 18px; }
+.pieLinks a { color: #c9cfdc; }
 
 .barraMovil {
   position: fixed;
@@ -128,17 +130,25 @@
   right: 16px;
   bottom: 16px;
   z-index: 30;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.55);
 }
 
-@media (min-width: 860px) {
-  .hero { padding: 56px 0 72px; }
-  .heroGrid { grid-template-columns: 1.05fr 0.95fr; gap: 48px; }
-  .heroTexto { padding-top: 24px; }
-  .seccion { padding: 88px 0; }
-  .beneficios { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .sobre { grid-template-columns: 0.8fr 1.2fr; gap: 56px; }
-  .pasos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .diagnostico { grid-template-columns: 1fr auto; padding: 36px 40px; }
+@media (min-width: 900px) {
+  .hero { padding: 72px 0 96px; }
+  .heroGrid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 64px; }
+  .heroTexto { padding-top: 12px; }
+  .pensamientos { padding: 120px 0; }
+  .sesion { padding: 120px 0; }
+  .sesionCabecera { margin-bottom: 64px; }
+  .linea { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .linea li { padding: 36px 40px 0 0; border-left: 0; border-top: 3px solid var(--marfil-hondo); }
+  .linea li::before { left: 0; top: -9px; }
+  .sobreGrid { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 72px; }
+  .retrato { margin: 0; align-self: stretch; display: flex; align-items: flex-end; }
+  .sobreTexto { padding: 110px 0; }
+  .solo { padding: 120px 0; }
+  .diagnosticoFila { grid-template-columns: 1fr auto; gap: 48px; }
+  .cierre { padding: 130px 0; }
   .barraMovil { display: none; }
+  .pie { padding-bottom: 26px; }
 }

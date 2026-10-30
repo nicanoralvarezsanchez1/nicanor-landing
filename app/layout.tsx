@@ -1,20 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Poppins } from "next/font/google";
+import { Literata } from "next/font/google";
 import { MetaPixelScript } from "@/components/MetaPixelScript";
 import "./globals.css";
 
-const display = Playfair_Display({
+// Una sola familia para toda la página: Literata, serif de lectura con cortes de titular.
+const literata = Literata({
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const texto = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-texto",
+  variable: "--font-literata",
   display: "swap",
 });
 
@@ -35,11 +29,11 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = { themeColor: "#1e2b45" };
+export const viewport: Viewport = { themeColor: "#e9e6e2" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${display.variable} ${texto.variable}`}>
+    <html lang="es" className={literata.variable}>
       <body>
         {children}
         <MetaPixelScript />

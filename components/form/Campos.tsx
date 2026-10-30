@@ -2,8 +2,6 @@
 
 import s from "./form.module.css";
 
-const LETRAS = ["A", "B", "C", "D", "E"];
-
 export function Progreso({ paso, total }: { paso: number; total: number }) {
   const pct = Math.round((paso / total) * 100);
   return (
@@ -37,9 +35,6 @@ export function Opciones<T extends string>({
           aria-pressed={valor === o}
           onClick={() => onElegir(o, i)}
         >
-          <span className={s.letra} aria-hidden="true">
-            {LETRAS[i]}
-          </span>
           {o}
         </button>
       ))}

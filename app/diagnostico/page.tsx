@@ -12,19 +12,27 @@ export const metadata: Metadata = {
 
 export default function DiagnosticoPage() {
   return (
-    <div className={s.fondo}>
+    <div className={s.split}>
       <VistaContenido nombre="Diagnóstico Nicanor" />
-      <header className={s.header}>
-        <Link href="/" aria-label="Nicanor Álvarez, psicólogo">
-          <Image src="/logo.png" alt="Nicanor Álvarez, psicólogo" width={600} height={275} className={s.logo} priority />
-        </Link>
-      </header>
-      <main className={s.main}>
-        <Diagnostico />
-      </main>
-      <footer className={s.pie}>
-        Este autodiagnóstico es orientativo y no reemplaza una evaluación profesional. <Link href="/privacidad">Privacidad</Link>
-      </footer>
+      <div className={s.panel}>
+        <Image src="/fotos/tazas.jpg" alt="Dos tazas sobre la mesa de la cocina, de noche" fill sizes="(min-width: 1000px) 50vw, 100vw" priority />
+      </div>
+      <div className={s.columna}>
+        <header className={s.barra}>
+          <Link href="/" className={s.marca}>
+            Nicanor Álvarez
+          </Link>
+          <Link href="/" className={s.enlace}>
+            Sesión gratuita
+          </Link>
+        </header>
+        <main className={s.main}>
+          <Diagnostico />
+        </main>
+        <footer className={s.pie}>
+          Este autodiagnóstico es orientativo y no reemplaza una evaluación profesional. <Link href="/privacidad">Privacidad</Link>
+        </footer>
+      </div>
     </div>
   );
 }

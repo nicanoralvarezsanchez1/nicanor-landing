@@ -1,78 +1,62 @@
-.tarjeta {
-  background: var(--blanco);
-  border: 1px solid var(--borde);
-  border-radius: 6px;
-  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.55);
-  padding: 30px 26px;
-}
+/* Formularios en bloque de papel sobre la piedra: un paso de tono, sin bordes ni sombras. */
+.tarjeta { background: var(--papel); padding: 28px 22px 26px; scroll-margin-top: 24px; }
 
-.progreso { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
-.barra { flex: 1; height: 4px; background: var(--marfil-hondo); border-radius: 99px; overflow: hidden; }
-.relleno { height: 100%; background: var(--vino); border-radius: 99px; transition: width 0.35s ease; }
-.contador { font-size: 13px; color: var(--tinta-suave); white-space: nowrap; }
+.progreso { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.barra { flex: 1; height: 4px; background: var(--piedra-honda); overflow: hidden; }
+.relleno { height: 100%; background: var(--vino); transition: width 0.35s ease; }
+.contador { font-size: 15px; color: var(--gris-noche); white-space: nowrap; font-variant-numeric: tabular-nums; }
 
-.pregunta { font-family: var(--font-display), Georgia, serif; font-size: 23px; line-height: 1.25; margin: 0 0 18px; color: var(--tinta); }
-.ayuda { font-size: 14px; color: var(--tinta-suave); margin: -8px 0 18px; }
+.pregunta { font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 14px; color: var(--noche); }
+.ayuda { font-size: 16px; color: var(--gris-noche); margin: -4px 0 20px; }
 
-.opciones { display: grid; gap: 10px; }
+.opciones { display: grid; gap: 6px; }
 .opcion {
   display: flex;
   align-items: center;
-  gap: 12px;
   width: 100%;
-  min-height: 54px;
-  padding: 12px 16px;
+  min-height: 58px;
+  padding: 14px 18px;
   text-align: left;
-  background: var(--marfil);
-  border: 1.5px solid var(--borde);
-  border-radius: 4px;
-  color: var(--tinta);
-  font-size: 15px;
+  background: var(--piedra);
+  border: 0;
+  border-radius: 0;
+  color: var(--noche);
+  font-size: 17px;
   line-height: 1.35;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
 }
-.opcion:hover { border-color: var(--noche); background: #fff; }
-.opcion[aria-pressed="true"] { border-color: var(--vino); background: #fff; box-shadow: inset 0 0 0 1px var(--vino); }
-.letra {
-  flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 3px;
-  display: grid;
-  place-items: center;
-  background: var(--marfil-hondo);
-  color: var(--noche);
-  font-weight: 600;
-  font-size: 13px;
-}
-.opcion[aria-pressed="true"] .letra { background: var(--vino); color: #fff; }
+.opcion:hover { background: var(--piedra-honda); }
+.opcion:active { transform: scale(0.99); }
+.opcion[aria-pressed="true"] { background: var(--noche); color: var(--papel); }
 
-.campo { display: grid; gap: 6px; margin-bottom: 14px; }
-.campo label { font-size: 14px; font-weight: 600; color: var(--noche); }
+.campo { display: grid; gap: 6px; margin-bottom: 16px; }
+.campo label { font-size: 16px; font-weight: 500; color: var(--noche); }
 .input, .select {
   width: 100%;
-  min-height: 50px;
+  min-height: 52px;
   padding: 12px 14px;
-  border: 1.5px solid var(--borde);
-  border-radius: 4px;
+  border: 1px solid #c7c1b8;
+  border-radius: 0;
   background: #fff;
-  color: var(--tinta);
+  color: var(--noche);
   font: inherit;
-  font-size: 16px;
+  font-size: 17px;
 }
-.input:focus, .select:focus { outline: none; border-color: var(--noche); box-shadow: 0 0 0 3px rgba(30, 43, 69, 0.12); }
+.input:focus, .select:focus { outline: none; border-color: var(--noche); box-shadow: inset 0 0 0 1px var(--noche); }
 .telefono { display: grid; grid-template-columns: 132px 1fr; gap: 8px; }
 
-.error { color: var(--error); font-size: 14px; margin: 4px 0 12px; }
-.privacidad { font-size: 12.5px; color: var(--tinta-suave); margin-top: 12px; text-align: center; }
+.error { color: var(--error); font-size: 16px; margin: 4px 0 12px; }
+.privacidad { font-size: 14.5px; color: var(--gris-noche); margin-top: 14px; }
 .volver {
   background: none;
   border: 0;
   padding: 8px 0;
   margin-top: 14px;
-  color: var(--tinta-suave);
-  font-size: 14px;
+  color: var(--gris-noche);
+  font-size: 16px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   cursor: pointer;
 }
 .volver:hover { color: var(--noche); }
@@ -80,14 +64,15 @@
 .pantalla { animation: entrar 0.35s ease both; }
 @keyframes entrar { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
-.calendly { min-height: 680px; border-radius: 10px; overflow: hidden; background: #fff; }
-.agendado {
-  text-align: center;
-  padding: 28px 12px;
-}
-.agendado h3 { font-size: 26px; margin-bottom: 10px; }
+.calendly { min-height: 680px; overflow: hidden; background: #fff; }
+.agendado { padding: 28px 0; }
+.agendado h3 { font-size: 28px; margin-bottom: 10px; }
 .check {
   width: 56px; height: 56px; border-radius: 50%;
-  display: grid; place-items: center; margin: 0 auto 14px;
+  display: grid; place-items: center; margin: 0 0 16px;
   background: var(--oliva); color: #fff; font-size: 28px;
+}
+
+@media (min-width: 700px) {
+  .tarjeta { padding: 36px 36px 32px; }
 }

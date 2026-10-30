@@ -149,11 +149,10 @@ export function Diagnostico() {
     <div className={s.caja}>
       {pantalla.tipo === "intro" && (
         <div className={`${f.pantalla} ${s.intro}`}>
-          <span className="etiqueta">Autodiagnóstico de pareja, dos minutos</span>
           <h1 className={s.titulo}>¿En qué etapa está tu relación?</h1>
           <p className={s.texto}>
-            Cinco preguntas para entender qué les está pasando y cuál es el siguiente paso. Al final recibes tu resultado y una
-            recomendación concreta.
+            Un autodiagnóstico de pareja en cinco preguntas y dos minutos. Al final recibes en qué etapa está tu relación y una
+            recomendación concreta para el siguiente paso.
           </p>
           <button className="btn btn-bloque" onClick={empezar}>
             Empezar el diagnóstico
@@ -170,7 +169,6 @@ export function Diagnostico() {
 
       {pantalla.tipo === "pregunta" && (
         <div className={f.pantalla} key={`q${pantalla.i}`}>
-          <p className={s.numero}>Pregunta {pantalla.i + 1} de {N}</p>
           <h2 className={f.pregunta}>{PREGUNTAS_DIAGNOSTICO[pantalla.i].texto}</h2>
           <Opciones
             opciones={PREGUNTAS_DIAGNOSTICO[pantalla.i].opciones}
@@ -247,8 +245,7 @@ function Resultado({
   const urgente = diag.perfil === "quiebre";
   return (
     <div className={f.pantalla}>
-      <span className="etiqueta">Tu resultado</span>
-      <p className={s.texto} style={{ marginTop: 8 }}>{nombre}, tu relación está en la etapa de:</p>
+      <p className={s.texto}>{nombre}, tu relación está en la etapa de:</p>
       <h2 className={s.perfil}>{info.titulo}</h2>
       <p className={s.texto}>{info.texto}</p>
       <div className={s.paso}>

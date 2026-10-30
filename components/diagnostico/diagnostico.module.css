@@ -1,27 +1,18 @@
-.caja {
-  width: 100%;
-  max-width: 620px;
-  margin: 0 auto;
-  background: var(--blanco);
-  border-radius: 6px;
-  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.55);
-  padding: 30px 22px;
-}
-.intro { display: grid; gap: 16px; }
-.titulo { font-size: clamp(32px, 6vw, 44px); color: var(--noche); }
-.texto { color: var(--tinta-suave); font-size: 16.5px; margin-bottom: 14px; }
-.numero { font-size: 14px; color: var(--vino); font-weight: 500; margin-bottom: 8px; }
-.autor { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--tinta-suave); border-top: 1px solid var(--borde); padding-top: 16px; }
-.avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex-shrink: 0; }
+.caja { width: 100%; background: var(--papel); padding: 28px 22px; }
+.intro { display: grid; gap: 18px; }
+.titulo { font-size: clamp(36px, 3.8vw, 56px); line-height: 1.02; letter-spacing: -0.035em; max-width: 13ch; }
+.texto { font-size: 18px; margin-bottom: 14px; max-width: 46ch; }
+.intro .texto { margin-bottom: 8px; }
+.autor { display: flex; align-items: center; gap: 12px; font-size: 16px; color: var(--gris-noche); margin-top: 8px; }
+.avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex-shrink: 0; background: var(--piedra-honda); }
 
-.perfil { font-size: clamp(30px, 5.5vw, 40px); color: var(--vino); font-style: italic; margin: 4px 0 14px; }
-.paso { background: var(--marfil); border-left: 0; border-radius: 10px; padding: 16px 18px; margin: 4px 0 18px; }
-.paso strong { display: block; color: var(--noche); margin-bottom: 4px; }
-.paso p { color: var(--tinta-suave); }
-.crisis { background: #f6e6e6; border-radius: 10px; padding: 16px 18px; margin: 0 0 18px; color: #5a1f1f; }
+.perfil { font-size: clamp(34px, 3.4vw, 48px); line-height: 1.04; letter-spacing: -0.035em; margin: 4px 0 18px; }
+.paso { background: var(--piedra); padding: 20px 22px; margin: 8px 0 20px; }
+.paso strong { display: block; font-weight: 600; margin-bottom: 4px; }
+.crisis { background: #f3dede; padding: 20px 22px; margin: 0 0 20px; color: #5a1f1f; }
 .crisis strong { display: block; margin-bottom: 4px; }
-.ctaTitulo { font-size: 24px; color: var(--noche); margin: 22px 0 6px; }
+.ctaTitulo { font-size: 28px; margin: 28px 0 8px; }
 
-@media (min-width: 640px) {
-  .caja { padding: 40px 40px; }
+@media (min-width: 700px) {
+  .caja { padding: 44px 44px 40px; }
 }

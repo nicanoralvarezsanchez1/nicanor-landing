@@ -5,8 +5,9 @@ import type { Estado } from "./opciones";
 
 /**
  * Acceso a la tabla `leads`. Con Supabase configurado usa la clave secreta
- * (salta RLS; la tabla no tiene políticas públicas). Sin Supabase, y solo en
- * desarrollo, guarda en memoria para poder probar los formularios en local.
+ * (salta RLS; la tabla no tiene políticas públicas). Sin Supabase guarda en memoria:
+ * sirve para probar en local y para publicar antes de conectar la base, pero en Vercel
+ * esa memoria se borra en cada arranque, así que no hay que lanzar anuncios sin Supabase.
  */
 
 export interface LeadRow {
@@ -56,14 +57,14 @@ function supabase() {
   });
 }
 
-// Memoria de desarrollo (se pierde al reiniciar el servidor).
+// Memoria temporal (se pierde al reiniciar el servidor).
 const g = globalThis as unknown as { __leads?: Map<string, LeadRow>; __historial?: unknown[] };
 const memoria = (g.__leads ??= new Map<string, LeadRow>());
 const historialMemoria = (g.__historial ??= []);
 
 function exigirConfig() {
   if (!configurado && process.env.NODE_ENV === "production") {
-    throw new Error("Supabase no está configurado (NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SECRET_KEY).");
+    console.warn("Supabase sin configurar: el lead se guarda solo en memoria temporal.");
   }
 }
 

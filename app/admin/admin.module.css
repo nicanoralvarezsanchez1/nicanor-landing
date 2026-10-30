@@ -1,0 +1,59 @@
+.panel { max-width: 1100px; margin: 0 auto; padding: 28px 16px 60px; }
+.top { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+.top h1 { font-size: 32px; color: var(--noche); }
+.top p { color: var(--tinta-suave); font-size: 14px; }
+.topAcciones { display: flex; gap: 10px; align-items: center; }
+.salir { background: none; border: 0; color: var(--tinta-suave); cursor: pointer; text-decoration: underline; }
+
+.metricas { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.metrica { background: var(--blanco); border: 1px solid var(--borde); border-radius: 10px; padding: 14px 16px; }
+.metrica span { display: block; font-size: 13px; color: var(--tinta-suave); }
+.metrica strong { font-size: 26px; color: var(--noche); }
+
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 18px; font-size: 14px; }
+.filtros > span { color: var(--tinta-suave); margin-left: 6px; }
+.filtros a { padding: 6px 12px; border-radius: 99px; border: 1px solid var(--borde); background: var(--blanco); color: var(--noche); text-decoration: none; }
+.filtros a.activo { background: var(--noche); color: var(--marfil); border-color: var(--noche); }
+.buscar { margin-left: auto; }
+.buscar input { min-height: 38px; padding: 6px 12px; border: 1px solid var(--borde); border-radius: 99px; min-width: 240px; font: inherit; font-size: 14px; }
+
+.lista { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.fila { background: var(--blanco); border: 1px solid var(--borde); border-radius: 10px; padding: 12px 16px; }
+.filaPrincipal { display: grid; grid-template-columns: 1fr auto auto auto; gap: 12px; align-items: center; }
+.quien strong { display: block; color: var(--noche); }
+.quien span { font-size: 13px; color: var(--tinta-suave); }
+.etiquetas { display: flex; gap: 6px; flex-wrap: wrap; }
+.badge { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 99px; text-transform: capitalize; }
+.calificado { background: #e3eedb; color: #2f4a1a; }
+.tibio { background: #f8ecd2; color: #6b4a0e; }
+.frio { background: #e6e9f0; color: #3a4560; }
+.incompleto { background: var(--marfil-hondo); color: var(--tinta-suave); }
+.urgente { background: #f6e0e0; color: #7a1f1f; }
+.selectEstado { min-height: 36px; padding: 4px 8px; border: 1px solid var(--borde); border-radius: 8px; font: inherit; font-size: 14px; background: #fff; }
+.selectEstado[data-estado="paciente"] { border-color: var(--oliva); color: var(--oliva); font-weight: 600; }
+.wa { font-size: 14px; font-weight: 600; color: #fff; background: #1f8f4e; padding: 8px 12px; border-radius: 8px; text-decoration: none; }
+
+.detalle { margin-top: 8px; }
+.detalle summary { cursor: pointer; font-size: 13px; color: var(--vino); }
+.detalle dl { display: grid; grid-template-columns: 160px 1fr; gap: 4px 12px; font-size: 14px; margin: 12px 0; }
+.detalle dt { color: var(--tinta-suave); }
+.detalle dd { margin: 0; }
+.notas { display: grid; gap: 8px; }
+.notas textarea { width: 100%; padding: 10px; border: 1px solid var(--borde); border-radius: 8px; font: inherit; font-size: 14px; }
+.notas button { justify-self: start; min-height: 40px; padding: 8px 16px; font-size: 14px; }
+.vacio { color: var(--tinta-suave); padding: 30px 0; }
+
+.loginFondo { min-height: 100vh; display: grid; place-items: center; background: var(--noche); padding: 16px; }
+.loginCaja { width: 100%; max-width: 360px; background: var(--blanco); border-radius: var(--radio-card); padding: 30px; display: grid; gap: 10px; }
+.loginCaja h1 { font-size: 26px; color: var(--noche); }
+.loginCaja p { color: var(--tinta-suave); font-size: 14px; margin-bottom: 8px; }
+.loginCaja label { font-size: 14px; font-weight: 600; }
+.loginCaja input { min-height: 46px; padding: 10px 12px; border: 1.5px solid var(--borde); border-radius: 10px; font: inherit; }
+.error { color: var(--error); font-size: 14px; }
+
+@media (max-width: 700px) {
+  .filaPrincipal { grid-template-columns: 1fr auto; }
+  .buscar { margin-left: 0; width: 100%; }
+  .buscar input { width: 100%; }
+  .detalle dl { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,27 @@
+.caja {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  background: var(--blanco);
+  border-radius: var(--radio-card);
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.55);
+  padding: 30px 22px;
+}
+.intro { display: grid; gap: 16px; }
+.titulo { font-size: clamp(32px, 6vw, 44px); color: var(--noche); }
+.texto { color: var(--tinta-suave); font-size: 16.5px; margin-bottom: 14px; }
+.numero { font-size: 13px; color: var(--oro); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.autor { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--tinta-suave); border-top: 1px solid var(--borde); padding-top: 16px; }
+.avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex-shrink: 0; }
+
+.perfil { font-size: clamp(30px, 5.5vw, 40px); color: var(--vino); font-style: italic; margin: 4px 0 14px; }
+.paso { background: var(--marfil); border-left: 0; border-radius: 10px; padding: 16px 18px; margin: 4px 0 18px; }
+.paso strong { display: block; color: var(--noche); margin-bottom: 4px; }
+.paso p { color: var(--tinta-suave); }
+.crisis { background: #f6e6e6; border-radius: 10px; padding: 16px 18px; margin: 0 0 18px; color: #5a1f1f; }
+.crisis strong { display: block; margin-bottom: 4px; }
+.ctaTitulo { font-size: 24px; color: var(--noche); margin: 22px 0 6px; }
+
+@media (min-width: 640px) {
+  .caja { padding: 40px 40px; }
+}

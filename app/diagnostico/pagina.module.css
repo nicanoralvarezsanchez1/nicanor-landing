@@ -1,0 +1,6 @@
+.fondo { min-height: 100vh; background: var(--noche); display: flex; flex-direction: column; }
+.header { display: flex; justify-content: center; padding: 22px 16px 8px; }
+.logo { width: auto; height: 38px; filter: brightness(0) invert(1); opacity: 0.92; }
+.main { flex: 1; padding: 16px 16px 40px; }
+.pie { text-align: center; color: #9aa3b8; font-size: 12.5px; padding: 0 16px 28px; }
+.pie a { color: #c9cfdc; }

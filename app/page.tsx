@@ -13,7 +13,7 @@ import s from "./landing.module.css";
    con los objetos de la casa donde ocurre (dos sillas, dos tazas, una cama a medias, la llamada, la fe). */
 
 const FOTOS_INICIO: FotoPanel[] = [
-  { id: "sillas", src: "/fotos/sillas.jpg", alt: "Dos sillones enfrentados junto a una ventana" },
+  { id: "sillas", src: "/fotos/sillones.jpg", alt: "Dos sillones azules frente a una ventana, con dos tazas de té sobre una mesa pequeña" },
   { id: "tazas", src: "/fotos/tazas.jpg", alt: "Dos tazas sobre la mesa de la cocina, de noche" },
   { id: "llamada", src: "/fotos/llamada.jpg", alt: "Una laptop abierta sobre la mesa del comedor, con un cuaderno" },
 ];
@@ -91,7 +91,7 @@ export default function ConsejeriaPage() {
             </header>
 
             <section className={s.hero} data-foto="sillas">
-              <FotoMovil src="/fotos/sillas.jpg" alt="Dos sillones enfrentados junto a una ventana" />
+              <FotoMovil src="/fotos/sillones.jpg" alt="Dos sillones azules frente a una ventana, con dos tazas de té sobre una mesa pequeña" />
               <h1 className={s.h1}>Antes de decidir, conversemos.</h1>
               <p className={s.bajada}>
                 Si estás pensando en separarte, una sesión de consejería de pareja te ayuda a mirar la relación completa antes de

@@ -43,7 +43,7 @@
 .wa { font-size: 14px; font-weight: 600; color: #fff; background: #1f8f4e; padding: 8px 12px; border-radius: 8px; text-decoration: none; }
 
 .detalle { margin-top: 8px; }
-.detalle summary { cursor: pointer; font-size: 13px; color: var(--vino); }
+.detalle summary { cursor: pointer; font-size: 13px; color: var(--primario-hondo); }
 .detalle dl { display: grid; grid-template-columns: 160px 1fr; gap: 4px 12px; font-size: 14px; margin: 12px 0; }
 .detalle dt { color: var(--tinta-suave); }
 .detalle dd { margin: 0; }

@@ -3,7 +3,7 @@
 
 .progreso { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
 .barra { flex: 1; height: 4px; background: var(--piedra-honda); overflow: hidden; }
-.relleno { height: 100%; background: var(--vino); transition: width 0.35s ease; }
+.relleno { height: 100%; background: var(--primario); transition: width 0.35s ease; }
 .contador { font-size: 15px; color: var(--gris-noche); white-space: nowrap; font-variant-numeric: tabular-nums; }
 
 .pregunta { font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 14px; color: var(--noche); }

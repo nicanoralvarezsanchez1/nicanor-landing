@@ -1,4 +1,4 @@
-/* Línea gráfica de Nicanor Álvarez. Fondo de piedra gris, tinta azul noche, vino solo para la acción.
+/* Línea gráfica de Nicanor Álvarez. Fondo de piedra gris, tinta azul noche, azul (#0b7ebd) solo para la acción.
    Los tonos de piedra salen de las fotos de ambiente (luz nublada de Lima). */
 :root {
   --font-display: var(--font-literata);
@@ -9,12 +9,12 @@
   --gris-noche: #535b6c;
   --noche: #1e2b45;
   --noche-hondo: #152036;
-  --vino: #7b2d3b;
-  --vino-hover: #66232f;
-  --vino-claro: #e8b9c2;
+  --primario: #0b7ebd;        /* color principal: botones y barra de progreso */
+  --primario-hover: #096aa0;  /* botón al pasar el mouse (texto blanco 5.9:1) */
+  --primario-hondo: #085f8f;  /* textos, enlaces y detalles sobre fondo claro (contraste AA) */
+  --primario-claro: #bfe2f3;
   --oro: #b88a3e;
   --oliva: #5f6b47;
-  --azul-nicanor: #1f7ac0;
   --marfil: #f5efe4;
   --marfil-hondo: #e9dfcc;
   --blanco: #fffdf9;
@@ -41,10 +41,10 @@ body {
 }
 h1, h2, h3 { font-family: var(--font-display), Georgia, serif; font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; margin: 0; color: var(--noche); }
 p { margin: 0; }
-a { color: var(--vino); }
+a { color: var(--primario-hondo); }
 img { max-width: 100%; display: block; }
 button { font: inherit; }
-:focus-visible { outline: 3px solid var(--vino); outline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--primario); outline-offset: 3px; }
 
 .contenedor { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 
@@ -58,7 +58,7 @@ button { font: inherit; }
   padding: 15px 30px;
   border: 0;
   border-radius: 0;
-  background: var(--vino);
+  background: var(--primario);
   color: #fff;
   font-weight: 500;
   font-size: 17px;
@@ -66,7 +66,7 @@ button { font: inherit; }
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }
-.btn:hover { background: var(--vino-hover); }
+.btn:hover { background: var(--primario-hover); }
 .btn:active { transform: scale(0.98); }
 .btn:disabled { opacity: 0.6; cursor: wait; }
 .btn-claro { background: var(--piedra-honda); color: var(--noche); }

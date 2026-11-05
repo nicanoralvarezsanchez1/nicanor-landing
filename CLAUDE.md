@@ -18,7 +18,7 @@ los califican y avisan a Meta para que las campañas optimicen hacia quien sí a
 - Sin Supabase configurado, en desarrollo los contactos se guardan en memoria (`lib/leads/store.ts`).
 
 ## Convenciones
-- Textos y comentarios en español. Línea gráfica de Nicanor: marfil, azul noche, vino, oro; Playfair Display + Poppins.
+- Textos y comentarios en español. Línea gráfica de Nicanor: marfil, azul noche, azul #0b7ebd, oro; Playfair Display + Poppins.
 - Ángulo de comunicación: primero el problema de pareja, la fe en segundo plano. Decir "sacerdote" o "padre", nunca "cura".
 - Repo en la cuenta GitHub `emanuelrlinares79`; commits con autor `emanuelrlinares79@gmail.com` (Vercel Hobby bloquea
   deploys de autores que no son colaboradores). Antes de `git push`: `gh auth switch --hostname github.com --user emanuelrlinares79`,

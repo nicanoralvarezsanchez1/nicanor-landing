@@ -1,5 +1,5 @@
 /* Pantalla dividida: foto fija a la izquierda, columna de lectura a la derecha (en escritorio).
-   Fondo de piedra, tinta azul noche, vino solo en la acción. Sin filetes, sin sombras, sin tarjetas. */
+   Fondo de piedra, tinta azul noche, azul solo en la acción. Sin filetes, sin sombras, sin tarjetas. */
 
 .split { display: block; }
 .panel { display: none; }
@@ -24,7 +24,7 @@
 .marca { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--noche); text-decoration: none; }
 .nav { display: none; gap: 28px; font-size: 16px; }
 .nav a { color: var(--noche); text-decoration: none; }
-.nav a:hover { color: var(--vino); }
+.nav a:hover { color: var(--primario-hondo); }
 
 /* ---------- Primera pantalla ---------- */
 .hero { padding: 0 0 72px; }
@@ -63,7 +63,7 @@
 /* La sesión, en tres momentos */
 .sesion { list-style: none; padding: 0; margin: 40px 0 0; display: grid; gap: 8px; }
 .sesion li { display: grid; gap: 6px; background: var(--papel); padding: 22px 22px 24px; }
-.cuando { font-size: 17px; color: var(--vino); font-weight: 500; }
+.cuando { font-size: 17px; color: var(--primario-hondo); font-weight: 500; }
 .sesion h3 { font-size: 24px; letter-spacing: -0.02em; }
 .sesion p { margin-top: 6px; max-width: 42ch; }
 
@@ -103,7 +103,7 @@
 }
 .faq summary:hover { background: #ece9e4; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; position: absolute; right: 22px; top: 15px; font-size: 26px; color: var(--vino); }
+.faq summary::after { content: "+"; position: absolute; right: 22px; top: 15px; font-size: 26px; color: var(--primario-hondo); }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { padding: 0 22px 22px; max-width: 48ch; }
 .seguridad { margin-top: 28px; font-size: 16px; color: var(--gris-noche); max-width: 48ch; }

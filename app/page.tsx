@@ -14,7 +14,7 @@ import s from "./landing.module.css";
 
 const FOTOS_INICIO: FotoPanel[] = [
   { id: "sillas", src: "/fotos/sillones.jpg", alt: "Dos sillones azules frente a una ventana, con dos tazas de té sobre una mesa pequeña" },
-  { id: "tazas", src: "/fotos/tazas.jpg", alt: "Dos tazas sobre la mesa de la cocina, de noche" },
+  { id: "tazas", src: "/fotos/tazas-mesa.jpg", alt: "Dos tazas sobre la mesa de la cocina de noche, una llena y otra casi vacía, con un celular entre ambas" },
   { id: "llamada", src: "/fotos/llamada.jpg", alt: "Una laptop abierta sobre la mesa del comedor, con un cuaderno" },
 ];
 
@@ -102,7 +102,7 @@ export default function ConsejeriaPage() {
             </section>
 
             <section className={s.seccion} data-foto="tazas" aria-labelledby="t-frases">
-              <FotoMovil src="/fotos/tazas.jpg" alt="Dos tazas sobre la mesa de la cocina, de noche" />
+              <FotoMovil src="/fotos/tazas-mesa.jpg" alt="Dos tazas sobre la mesa de la cocina de noche, una llena y otra casi vacía, con un celular entre ambas" />
               <div data-aparece>
                 <h2 id="t-frases" className={s.h2}>
                   ¿Alguna de estas frases es tuya?

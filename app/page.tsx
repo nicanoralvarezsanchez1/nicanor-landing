@@ -20,7 +20,7 @@ const FOTOS_INICIO: FotoPanel[] = [
 
 const FOTOS_NICANOR: FotoPanel[] = [
   { id: "nicanor", src: "/nicanor.jpg", alt: "Nicanor Álvarez, psicólogo", modo: "retrato" },
-  { id: "rosario", src: "/fotos/rosario.jpg", alt: "Un rosario y un anillo de matrimonio sobre un cuaderno abierto" },
+  { id: "rosario", src: "/fotos/rosario-cuaderno.jpg", alt: "Un rosario de madera con cordón azul noche y un anillo de matrimonio sobre un cuaderno abierto" },
 ];
 
 const SESION = [
@@ -179,7 +179,7 @@ export default function ConsejeriaPage() {
             </section>
 
             <section className={s.seccion} data-foto="rosario" aria-labelledby="t-fe">
-              <FotoMovil src="/fotos/rosario.jpg" alt="Un rosario y un anillo de matrimonio sobre un cuaderno abierto" />
+              <FotoMovil src="/fotos/rosario-cuaderno.jpg" alt="Un rosario de madera con cordón azul noche y un anillo de matrimonio sobre un cuaderno abierto" />
               <div data-aparece>
                 <h2 id="t-fe" className={s.h2}>
                   Si tu fe importa, tiene lugar aquí

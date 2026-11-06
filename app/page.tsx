@@ -15,7 +15,7 @@ import s from "./landing.module.css";
 const FOTOS_INICIO: FotoPanel[] = [
   { id: "sillas", src: "/fotos/sillones.jpg", alt: "Dos sillones azules frente a una ventana, con dos tazas de té sobre una mesa pequeña" },
   { id: "tazas", src: "/fotos/tazas-mesa.jpg", alt: "Dos tazas sobre la mesa de la cocina de noche, una llena y otra casi vacía, con un celular entre ambas" },
-  { id: "llamada", src: "/fotos/llamada.jpg", alt: "Una laptop abierta sobre la mesa del comedor, con un cuaderno" },
+  { id: "llamada", src: "/fotos/laptop-cuaderno.jpg", alt: "Una laptop con la pantalla apagada y un cuaderno abierto sobre una mesa redonda junto a la ventana, con una cruz de madera en el alféizar y las luces de la ciudad al fondo" },
 ];
 
 const FOTOS_NICANOR: FotoPanel[] = [
@@ -113,7 +113,7 @@ export default function ConsejeriaPage() {
             </section>
 
             <section className={s.seccion} id="sesion" data-foto="llamada" aria-labelledby="t-sesion">
-              <FotoMovil src="/fotos/llamada.jpg" alt="Una laptop abierta sobre la mesa del comedor, con un cuaderno" />
+              <FotoMovil src="/fotos/laptop-cuaderno.jpg" alt="Una laptop con la pantalla apagada y un cuaderno abierto sobre una mesa redonda junto a la ventana, con una cruz de madera en el alféizar y las luces de la ciudad al fondo" />
               <div data-aparece>
                 <h2 id="t-sesion" className={s.h2}>
                   Qué pasa en los treinta minutos

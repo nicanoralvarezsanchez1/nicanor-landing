@@ -140,7 +140,7 @@ export default function ConsejeriaPage() {
 
         <section className={s.solo} aria-labelledby="t-solo">
           <div className={s.soloFoto}>
-            <Image src="/fotos/cama.jpg" alt="Una cama con un solo lado usado, en la luz gris de la mañana" fill sizes="(min-width: 1000px) 40vw, 100vw" />
+            <Image src="/fotos/cama-manana.jpg" alt="Una cama doble con un lado sin tocar y el otro con las sábanas revueltas, bajo un crucifijo en la pared, en la luz gris de la mañana" fill sizes="(min-width: 1000px) 40vw, 100vw" />
           </div>
           <div className={s.soloTexto} data-aparece>
             <h2 id="t-solo" className={s.h2Grande}>

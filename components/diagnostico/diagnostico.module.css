@@ -1,12 +1,12 @@
 .caja { width: 100%; background: var(--papel); padding: 28px 22px; }
 .intro { display: grid; gap: 18px; }
-.titulo { font-size: clamp(36px, 3.8vw, 56px); line-height: 1.02; letter-spacing: -0.035em; max-width: 13ch; }
+.titulo { font-size: clamp(31px, 3.3vw, 49px); line-height: 1.04; letter-spacing: -0.03em; max-width: 14ch; }
 .texto { font-size: 18px; margin-bottom: 14px; max-width: 46ch; }
 .intro .texto { margin-bottom: 8px; }
 .autor { display: flex; align-items: center; gap: 12px; font-size: 16px; color: var(--gris-noche); margin-top: 8px; }
 .avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex-shrink: 0; background: var(--piedra-honda); }
 
-.perfil { font-size: clamp(34px, 3.4vw, 48px); line-height: 1.04; letter-spacing: -0.035em; margin: 4px 0 18px; }
+.perfil { font-size: clamp(30px, 3vw, 42px); line-height: 1.06; letter-spacing: -0.03em; margin: 4px 0 18px; }
 .paso { background: var(--piedra); padding: 20px 22px; margin: 8px 0 20px; }
 .paso strong { display: block; font-weight: 600; margin-bottom: 4px; }
 .crisis { background: #f3dede; padding: 20px 22px; margin: 0 0 20px; color: #5a1f1f; }

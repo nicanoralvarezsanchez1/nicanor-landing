@@ -19,8 +19,8 @@ export default function DiagnosticoPage() {
       </div>
       <div className={s.columna}>
         <header className={s.barra}>
-          <Link href="/" className={s.marca}>
-            Nicanor Álvarez
+          <Link href="/" className={s.marca} aria-label="Nicanor Álvarez, psicólogo">
+            <Image src="/logo/logotipo-azul.png" alt="Nicanor Álvarez, psicólogo" width={773} height={353} className={s.marcaLogo} priority />
           </Link>
           <Link href="/" className={s.enlace}>
             Sesión gratuita

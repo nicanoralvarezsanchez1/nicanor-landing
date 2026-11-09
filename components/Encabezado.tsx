@@ -7,7 +7,7 @@ export function Encabezado({ cta, href }: { cta: string; href: string }) {
     <header className={s.header}>
       <div className={`contenedor ${s.fila}`}>
         <Link href="/" aria-label="Nicanor Álvarez, psicólogo">
-          <Image src="/logo.png" alt="Nicanor Álvarez, psicólogo" width={600} height={275} className={s.logo} priority />
+          <Image src="/logo/logotipo-azul.png" alt="Nicanor Álvarez, psicólogo" width={773} height={353} className={s.logo} priority />
         </Link>
         <a className={`btn ${s.cta}`} href={href}>
           {cta}

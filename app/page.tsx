@@ -80,8 +80,8 @@ export default function ConsejeriaPage() {
 
           <div className={s.columna}>
             <header className={s.barra}>
-              <Link href="/" className={s.marca}>
-                Nicanor Álvarez
+              <Link href="/" className={s.marca} aria-label="Nicanor Álvarez, psicólogo">
+                <Image src="/logo/logotipo-azul.png" alt="Nicanor Álvarez, psicólogo" width={773} height={353} className={s.marcaLogo} priority />
               </Link>
               <nav className={s.nav} aria-label="Secciones">
                 <a href="#sesion">La sesión</a>
@@ -241,7 +241,7 @@ export default function ConsejeriaPage() {
       </main>
 
       <footer className={s.pie}>
-        <p className={s.pieNombre}>Nicanor Álvarez</p>
+        <Image src="/logo/logotipo-blanco.png" alt="Nicanor Álvarez, psicólogo" width={773} height={353} className={s.pieLogo} />
         <div className={s.pieFila}>
           <span>Psicólogo. Consejería de pareja online y presencial en Lima, Perú.</span>
           <span className={s.pieLinks}>

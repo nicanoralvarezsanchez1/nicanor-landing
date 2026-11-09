@@ -1,8 +1,8 @@
 /* Línea gráfica de Nicanor Álvarez. Fondo de piedra gris, tinta azul noche, azul (#0b7ebd) solo para la acción.
    Los tonos de piedra salen de las fotos de ambiente (luz nublada de Lima). */
 :root {
-  --font-display: var(--font-literata);
-  --font-texto: var(--font-literata);
+  --font-display: var(--font-montserrat);
+  --font-texto: var(--font-montserrat);
   --piedra: #e9e6e2;
   --piedra-honda: #dcd7d0;
   --papel: #f5f3f0;
@@ -39,7 +39,7 @@ body {
   font-size: 18px;
   line-height: 1.55;
 }
-h1, h2, h3 { font-family: var(--font-display), Georgia, serif; font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; margin: 0; color: var(--noche); }
+h1, h2, h3 { font-family: var(--font-display), "Segoe UI", Arial, sans-serif; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 0; color: var(--noche); }
 p { margin: 0; }
 a { color: var(--primario-hondo); }
 img { max-width: 100%; display: block; }

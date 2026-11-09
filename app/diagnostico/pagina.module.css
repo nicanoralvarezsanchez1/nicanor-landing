@@ -4,7 +4,8 @@
 .panel img { object-fit: cover; }
 .columna { display: flex; flex-direction: column; min-height: 70vh; padding: 0 20px; }
 .barra { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; }
-.marca { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--noche); text-decoration: none; }
+.marca { display: block; line-height: 0; }
+.marcaLogo { width: auto; height: 58px; }
 .enlace { font-size: 16px; color: var(--noche); }
 .main { flex: 1; padding: 8px 0 40px; }
 .pie { color: var(--gris-noche); font-size: 15px; padding: 0 0 32px; max-width: 52ch; }

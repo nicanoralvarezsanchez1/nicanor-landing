@@ -1,4 +1,4 @@
-/* Línea gráfica de Nicanor Álvarez. Fondo de piedra gris, tinta azul noche, azul (#0b7ebd) solo para la acción.
+/* Línea gráfica de Nicanor Álvarez. Fondo de piedra gris, tinta casi negra, azul (#0b7ebd) solo para la acción.
    Los tonos de piedra salen de las fotos de ambiente (luz nublada de Lima). */
 :root {
   --font-display: var(--font-montserrat);
@@ -6,9 +6,9 @@
   --piedra: #e9e6e2;
   --piedra-honda: #dcd7d0;
   --papel: #f5f3f0;
-  --gris-noche: #535b6c;
-  --noche: #1e2b45;
-  --noche-hondo: #152036;
+  --gris-noche: #5a5656;
+  --noche: #231f20;
+  --noche-hondo: #085f8f;
   --primario: #0b7ebd;        /* color principal: botones y barra de progreso */
   --primario-hover: #096aa0;  /* botón al pasar el mouse (texto blanco 5.9:1) */
   --primario-hondo: #085f8f;  /* textos, enlaces y detalles sobre fondo claro (contraste AA) */
@@ -18,8 +18,8 @@
   --marfil: #f5efe4;
   --marfil-hondo: #e9dfcc;
   --blanco: #fffdf9;
-  --tinta: #1b1a1f;
-  --tinta-suave: #5e584f;
+  --tinta: #231f20;
+  --tinta-suave: #5a5656;
   --borde: #ddd2bd;
   --error: #a32d2d;
 
@@ -34,12 +34,12 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--piedra);
-  color: var(--noche);
+  color: var(--tinta);
   font-family: var(--font-texto), "Segoe UI", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.55;
 }
-h1, h2, h3 { font-family: var(--font-display), "Segoe UI", Arial, sans-serif; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 0; color: var(--noche); }
+h1, h2, h3 { font-family: var(--font-display), "Segoe UI", Arial, sans-serif; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 0; color: var(--tinta); }
 p { margin: 0; }
 a { color: var(--primario-hondo); }
 img { max-width: 100%; display: block; }
@@ -69,7 +69,7 @@ button { font: inherit; }
 .btn:hover { background: var(--primario-hover); }
 .btn:active { transform: scale(0.98); }
 .btn:disabled { opacity: 0.6; cursor: wait; }
-.btn-claro { background: var(--piedra-honda); color: var(--noche); }
+.btn-claro { background: var(--piedra-honda); color: var(--tinta); }
 .btn-claro:hover { background: #cfc9c1; }
 .btn-bloque { width: 100%; }
 

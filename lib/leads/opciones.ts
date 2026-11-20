@@ -44,7 +44,7 @@ export const DISPOSICION_PREGUNTA =
   "¿Qué tan dispuesto o dispuesta estás a invertir en un proceso para recuperar la paz en tu matrimonio?";
 
 /** Aclaración visible justo encima de las respuestas: el precio antes de calificar. */
-export const DISPOSICION_ACLARACION = `La primera sesión es gratuita. Las siguientes tienen un valor de ${PRECIO_SESION} cada una.`;
+export const DISPOSICION_ACLARACION = `La sesión de orientación (20 min) es gratuita, para orientarte y darte mayor claridad sobre tu caso. Las siguientes tienen un valor de ${PRECIO_SESION} cada una.`;
 
 // --- Ruta B · Sesión de consejería -------------------------------------------
 

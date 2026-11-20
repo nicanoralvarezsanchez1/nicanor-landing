@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { completarDiagnostico, guardarContacto, type ContactoInput } from "@/app/actions";
-import { CalendlyInline } from "@/components/form/CalendlyInline";
+import { RedireccionWhatsapp } from "@/components/form/RedireccionWhatsapp";
 import {
   CONTACTO_VACIO,
   CamposContacto,
@@ -228,7 +228,7 @@ export function Diagnostico() {
         )}
 
       {pantalla.tipo === "resultado" && diag && (
-        <Resultado diag={diag} nombre={primerNombre} optimizar={optimizar} leadId={leadId.current!} contacto={contacto} />
+        <Resultado diag={diag} nombre={primerNombre} nombreCompleto={contacto.nombre.trim()} quien={quien} disposicion={disposicion} />
       )}
     </div>
   );
@@ -237,18 +237,17 @@ export function Diagnostico() {
 function Resultado({
   diag,
   nombre,
-  optimizar,
-  leadId,
-  contacto,
+  nombreCompleto,
+  quien,
+  disposicion,
 }: {
   diag: Diag;
   nombre: string;
-  optimizar: boolean;
-  leadId: string;
-  contacto: Contacto;
+  nombreCompleto: string;
+  quien: QuienBusca | null;
+  disposicion: Disposicion | null;
 }) {
   const info = PERFIL_INFO[diag.perfil];
-  const urgente = diag.perfil === "quiebre";
   return (
     <div className={f.pantalla}>
       <p className={s.texto}>{nombre}, tu relación está en la etapa de:</p>
@@ -276,27 +275,18 @@ function Resultado({
         </div>
       )}
 
-      {optimizar ? (
-        <>
-          <h3 className={s.ctaTitulo}>{urgente ? "Agenda una atención prioritaria" : "Agenda tu sesión de consejería gratuita"}</h3>
-          <p className={s.texto}>20 minutos por videollamada, sin costo. Elige el horario que te acomode:</p>
-          <CalendlyInline leadId={leadId} nombre={contacto.nombre} email={contacto.email} />
-        </>
-      ) : (
-        <>
-          <p className={s.texto}>
-            Cuando quieras dar el siguiente paso, puedes escribirme y conversamos sin compromiso.
-          </p>
-          <a
-            className="btn btn-bloque"
-            href={whatsappLink(`Hola Nicanor, soy ${nombre}. Hice el autodiagnóstico y me salió "${info.titulo}". Quisiera conversar.`)}
-            target="_blank"
-            rel="noopener"
-          >
-            Escribir a Nicanor por WhatsApp
-          </a>
-        </>
-      )}
+      <RedireccionWhatsapp
+        segundos={25}
+        mensaje={[
+          `Hola Nicanor, soy ${nombreCompleto}. Hice el autodiagnóstico y me salió "${info.titulo}" (${diag.puntaje}/20).`,
+          "",
+          ...(quien ? [`• Quién busca ayuda: ${quien}`] : []),
+          ...(disposicion ? [`• Inversión: ${disposicion}`] : []),
+          ...(diag.alertaCrisis ? ["• Me estoy sintiendo muy mal últimamente"] : []),
+          "",
+          "Quisiera conversar sobre la sesión de orientación.",
+        ].join("\n")}
+      />
     </div>
   );
 }

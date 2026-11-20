@@ -87,3 +87,11 @@
 @media (min-width: 700px) {
   .tarjeta { padding: 36px 36px 32px; }
 }
+
+/* Resumen de respuestas y cuenta regresiva hacia WhatsApp */
+.resumen { margin: 0 0 16px; padding-left: 20px; display: grid; gap: 4px; font-size: 17px; color: var(--noche); }
+.redireccion { margin-top: 8px; display: grid; gap: 12px; }
+.redireccionTexto { font-size: 17px; margin: 0; color: var(--noche); }
+.redireccionBarra { height: 6px; background: var(--piedra-honda); border-radius: 3px; overflow: hidden; }
+.redireccionBarra span { display: block; height: 100%; background: var(--primario); transition: width 1s linear; }
+@media (prefers-reduced-motion: reduce) { .redireccionBarra span { transition: none; } }

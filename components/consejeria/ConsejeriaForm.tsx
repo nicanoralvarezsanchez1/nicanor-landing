@@ -119,7 +119,7 @@ export function ConsejeriaForm() {
       {paso === 0 && (
         <form className={s.pantalla} onSubmit={enviarContacto} noValidate>
           <h2 className={s.pregunta}>Agenda tu sesión de consejería gratuita</h2>
-          <p className={s.ayuda}>30 minutos por videollamada. Empieza con tus datos: te tomará un minuto.</p>
+          <p className={s.ayuda}>20 minutos por videollamada. Empieza con tus datos: te tomará un minuto.</p>
           <CamposContacto valor={contacto} onCambio={setContacto} />
           {error && <p className={s.error} role="alert">{error}</p>}
           <button className="btn btn-bloque" type="submit" disabled={enviando}>
@@ -177,7 +177,7 @@ export function ConsejeriaForm() {
       {paso === TOTAL && resultado?.optimizar && leadId.current && (
         <div className={s.pantalla}>
           <h2 className={s.pregunta}>{primerNombre}, elige el horario de tu sesión</h2>
-          <p className={s.ayuda}>Gratuita, por videollamada, 30 minutos.</p>
+          <p className={s.ayuda}>Gratuita, por videollamada, 20 minutos.</p>
           <CalendlyInline leadId={leadId.current} nombre={contacto.nombre} email={contacto.email} />
         </div>
       )}

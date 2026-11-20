@@ -19,10 +19,10 @@ export const metadata: Metadata = {
   ),
   title: "Nicanor Álvarez · Psicólogo católico | Consejería de pareja",
   description:
-    "Sesión de consejería de pareja gratuita de 30 minutos y autodiagnóstico de tu relación. Psicólogo católico, online y presencial en Lima.",
+    "Sesión de consejería de pareja gratuita de 20 minutos y autodiagnóstico de tu relación. Psicólogo católico, online y presencial en Lima.",
   openGraph: {
     title: "Nicanor Álvarez · Psicólogo católico",
-    description: "Antes de decidir, mira tu relación completa. Consejería de pareja gratuita de 30 minutos.",
+    description: "Antes de decidir, mira tu relación completa. Consejería de pareja gratuita de 20 minutos.",
     images: ["/nicanor.jpg"],
     locale: "es_PE",
     type: "website",

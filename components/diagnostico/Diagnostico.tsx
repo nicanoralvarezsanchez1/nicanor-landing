@@ -279,7 +279,7 @@ function Resultado({
       {optimizar ? (
         <>
           <h3 className={s.ctaTitulo}>{urgente ? "Agenda una atención prioritaria" : "Agenda tu sesión de consejería gratuita"}</h3>
-          <p className={s.texto}>30 minutos por videollamada, sin costo. Elige el horario que te acomode:</p>
+          <p className={s.texto}>20 minutos por videollamada, sin costo. Elige el horario que te acomode:</p>
           <CalendlyInline leadId={leadId} nombre={contacto.nombre} email={contacto.email} />
         </>
       ) : (

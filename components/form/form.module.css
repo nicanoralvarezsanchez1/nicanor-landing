@@ -8,6 +8,17 @@
 
 .pregunta { font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 14px; color: var(--noche); }
 .ayuda { font-size: 16px; color: var(--gris-noche); margin: -4px 0 20px; }
+/* Precio a la vista antes de responder: tiene que leerse, no perderse. */
+.aclaracion {
+  margin: 0 0 18px;
+  padding: 12px 16px;
+  border-left: 4px solid var(--primario);
+  background: var(--papel);
+  border-radius: var(--radio);
+  color: var(--noche);
+  font-size: 17px;
+  line-height: 1.4;
+}
 
 .opciones { display: grid; gap: 6px; }
 .opcion {

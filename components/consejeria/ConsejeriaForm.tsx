@@ -16,6 +16,7 @@ import {
 import { whatsappLink } from "@/lib/config";
 import {
   DISPOSICION_OPTIONS,
+  DISPOSICION_ACLARACION,
   DISPOSICION_PREGUNTA,
   PROBLEMA_OPTIONS,
   QUIEN_BUSCA_OPTIONS,
@@ -160,7 +161,7 @@ export function ConsejeriaForm() {
       {paso === 5 && (
         <div className={s.pantalla} key="p5">
           <h2 className={s.pregunta}>{DISPOSICION_PREGUNTA}</h2>
-          <p className={s.ayuda}>La sesión de orientación es gratuita. Esto nos ayuda a preparar la conversación.</p>
+          <p className={s.aclaracion}>{DISPOSICION_ACLARACION}</p>
           <Opciones opciones={DISPOSICION_OPTIONS} valor={r.disposicion} onElegir={(v) => void terminar(v)} />
           {enviando && <p className={s.ayuda} style={{ marginTop: 14 }}>Guardando…</p>}
           {error && <p className={s.error} role="alert">{error}</p>}
@@ -185,8 +186,8 @@ export function ConsejeriaForm() {
         <div className={s.pantalla}>
           <h2 className={s.pregunta}>Gracias, {primerNombre}.</h2>
           <p style={{ marginBottom: 18 }}>
-            Entiendo que por ahora buscas información. Puedes empezar con el autodiagnóstico gratuito para ver en qué etapa está tu
-            relación, y si luego quieres conversar, escríbeme.
+            Gracias por contarme. Cuando sea un buen momento para ti, escríbeme y vemos juntos cómo empezar. Mientras tanto, puedes
+            hacer el autodiagnóstico gratuito para ver en qué etapa está tu relación.
           </p>
           <a className="btn btn-bloque" href="/diagnostico">
             Hacer el autodiagnóstico

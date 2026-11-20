@@ -17,6 +17,7 @@ import {
 import { whatsappLink } from "@/lib/config";
 import {
   DISPOSICION_OPTIONS,
+  DISPOSICION_ACLARACION,
   DISPOSICION_PREGUNTA,
   PERFIL_INFO,
   PREGUNTAS_DIAGNOSTICO,
@@ -212,6 +213,7 @@ export function Diagnostico() {
       {pantalla.tipo === "disposicion" && (
         <div className={f.pantalla} key="disp">
           <h2 className={f.pregunta}>{DISPOSICION_PREGUNTA}</h2>
+          <p className={f.aclaracion}>{DISPOSICION_ACLARACION}</p>
           <Opciones opciones={DISPOSICION_OPTIONS} valor={disposicion} onElegir={(v) => void terminar(v)} />
           {enviando && <p className={f.ayuda} style={{ marginTop: 14 }}>Calculando tu resultado…</p>}
           {error && <p className={f.error} role="alert">{error}</p>}

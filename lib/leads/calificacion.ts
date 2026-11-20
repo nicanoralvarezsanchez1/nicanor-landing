@@ -6,26 +6,31 @@ import type { Disposicion, Nivel, Perfil, Urgencia } from "./opciones";
  * (custom_data.nivel) para optimizar las campañas hacia quienes sí empiezan
  * un proceso.
  *
- * Regla dura (igual que Sinapsis): quien prefiere opciones gratuitas es "frio",
- * diga lo que diga en lo demás.
+ * La pregunta final muestra el precio (primera sesión gratis, luego S/140 cada
+ * una). Solo es calificado quien acepta ese precio; quien necesita organizarse
+ * es tibio y quien no podría es frío, diga lo que diga en lo demás.
  */
 
-const PRIORIDAD: Disposicion = "Totalmente: es mi prioridad ahora";
-const GRATIS: Disposicion = "Por ahora prefiero opciones gratuitas";
+const PUEDE: Disposicion = "Sí, puedo invertir en eso";
+const NO_PUEDE: Disposicion = "Por ahora no podría";
 
 export function nivelConsejeria(urgencia: Urgencia, disposicion: Disposicion): Nivel {
-  if (disposicion === GRATIS) return "frio";
-  if (disposicion === PRIORIDAD) return "calificado";
+  if (disposicion === NO_PUEDE) return "frio";
+  if (disposicion !== PUEDE) return "tibio";
   return urgencia === "Solo estoy explorando" ? "tibio" : "calificado";
 }
 
 export function nivelDiagnostico(perfil: Perfil, disposicion: Disposicion): Nivel {
-  if (disposicion === GRATIS) return "frio";
-  if (disposicion === PRIORIDAD) return "calificado";
-  return perfil === "distancia" || perfil === "quiebre" ? "calificado" : "tibio";
+  if (disposicion === NO_PUEDE) return "frio";
+  if (disposicion !== PUEDE) return "tibio";
+  return perfil === "crecimiento" ? "tibio" : "calificado";
 }
 
-/** Solo los calificados y tibios cuentan como Lead para Meta; los fríos van como evento propio. */
+/**
+ * Solo los calificados cuentan como Lead para Meta y ven el calendario.
+ * Tibios y fríos se guardan en el panel y van a WhatsApp, para que la campaña
+ * aprenda a traer gente que acepta el precio y no solo gente que dice que sí.
+ */
 export function optimizarConMeta(nivel: Nivel): boolean {
-  return nivel !== "frio";
+  return nivel === "calificado";
 }

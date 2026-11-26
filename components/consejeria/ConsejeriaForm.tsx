@@ -5,7 +5,7 @@ import { completarConsejeria, guardarContacto, type ContactoInput } from "@/app/
 import { RedireccionWhatsapp } from "@/components/form/RedireccionWhatsapp";
 import {
   CONTACTO_VACIO,
-  CamposContacto,
+  CamposFrase,
   Opciones,
   Progreso,
   contactoValido,
@@ -118,12 +118,11 @@ export function ConsejeriaForm() {
 
       {paso === 0 && (
         <form className={s.pantalla} onSubmit={enviarContacto} noValidate>
-          <h2 className={s.pregunta}>Agenda tu sesión de consejería gratuita</h2>
-          <p className={s.ayuda}>20 minutos por videollamada. Empieza con tus datos: te tomará un minuto.</p>
-          <CamposContacto valor={contacto} onCambio={setContacto} />
+          <p className={s.subtitulo}>Gratuita · 20 minutos por videollamada</p>
+          <CamposFrase valor={contacto} onCambio={setContacto} />
           {error && <p className={s.error} role="alert">{error}</p>}
           <button className="btn btn-bloque" type="submit" disabled={enviando}>
-            {enviando ? "Guardando…" : "Continuar"}
+            {enviando ? "Guardando…" : "Quiero agendar mi sesión"}
           </button>
           <p className={s.privacidad}>Tus datos son confidenciales. Solo los usa Nicanor para contactarte.</p>
         </form>

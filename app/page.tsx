@@ -91,12 +91,10 @@ export default function ConsejeriaPage() {
             </header>
 
             <section className={s.hero} data-foto="sillas">
-              <FotoMovil src="/fotos/sillones.jpg" alt="Dos sillones azules frente a una ventana, con dos tazas de té sobre una mesa pequeña" />
-              <h1 className={s.h1}>Antes de decidir, conversemos.</h1>
+              <h1 className={s.h1}>Agenda una sesión de consejería</h1>
               <p className={s.bajada}>
-                Si estás pensando en separarte, una sesión de consejería de pareja te ayuda a mirar la relación completa antes de
-                decidir. Son 20 minutos gratuitos por videollamada con Nicanor Álvarez, psicólogo, y puedes venir aunque tu pareja
-                no quiera.
+                Si estás pensando en separarte, esta sesión te ayuda a mirar la relación completa antes de decidir, ver qué está
+                pasando entre ustedes y darte una ruta a seguir en un proceso terapéutico.
               </p>
               <ConsejeriaForm />
             </section>

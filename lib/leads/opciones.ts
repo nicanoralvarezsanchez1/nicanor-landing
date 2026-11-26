@@ -27,16 +27,24 @@ export const ESTADO_LABEL: Record<Estado, string> = {
 export const QUIEN_BUSCA_OPTIONS = ["Solo yo", "Los dos", "Mi pareja no quiere"] as const;
 export type QuienBusca = (typeof QUIEN_BUSCA_OPTIONS)[number];
 
-/** Disposición a invertir en recuperar el matrimonio (no se pregunta por el precio). */
+/**
+ * Disposición a invertir, con el precio a la vista: quien llega como
+ * calificado ya sabe que después de la primera sesión cada una cuesta S/140.
+ */
+export const PRECIO_SESION = "S/140";
+
 export const DISPOSICION_OPTIONS = [
-  "Totalmente: es mi prioridad ahora",
-  "Sí, si veo que el proceso tiene sentido",
-  "Por ahora prefiero opciones gratuitas",
+  "Sí, puedo invertir en eso",
+  "Necesitaría organizarme unas semanas",
+  "Por ahora no podría",
 ] as const;
 export type Disposicion = (typeof DISPOSICION_OPTIONS)[number];
 
 export const DISPOSICION_PREGUNTA =
   "¿Qué tan dispuesto o dispuesta estás a invertir en un proceso para recuperar la paz en tu matrimonio?";
+
+/** Aclaración visible justo encima de las respuestas: el precio antes de calificar. */
+export const DISPOSICION_ACLARACION = `La sesión de orientación (20 min) es gratuita, para orientarte y darte mayor claridad sobre tu caso. Las siguientes tienen un valor de ${PRECIO_SESION} cada una.`;
 
 // --- Ruta B · Sesión de consejería -------------------------------------------
 

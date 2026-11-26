@@ -45,7 +45,7 @@ const SESION = [
 const FAQ = [
   {
     p: "¿La sesión es realmente gratuita?",
-    r: "Sí. Son 30 minutos por videollamada, sin costo y sin compromiso. Si después decides empezar un proceso, conversamos las opciones en ese momento.",
+    r: "Sí. Son 20 minutos por videollamada, sin costo y sin compromiso. Si después decides empezar un proceso, conversamos las opciones en ese momento.",
   },
   {
     p: "Estoy pensando en separarme. ¿Me vas a convencer de que no lo haga?",
@@ -92,12 +92,10 @@ export default function ConsejeriaPage() {
             </header>
 
             <section className={s.hero} data-foto="sillas">
-              <FotoMovil src="/fotos/sillones.jpg" alt="Dos sillones juntos frente a una ventana soleada, con una manta compartida, dos tazas humeantes y una cruz de madera en el alféizar" />
-              <h1 className={s.h1}>Antes de decidir, conversemos.</h1>
+              <h1 className={s.h1}>Agenda una sesión de consejería</h1>
               <p className={s.bajada}>
-                Si estás pensando en separarte, una sesión de consejería de pareja te ayuda a mirar la relación completa antes de
-                decidir. Son 30 minutos gratuitos por videollamada con Nicanor Álvarez, psicólogo, y puedes venir aunque tu pareja
-                no quiera.
+                Si estás pensando en separarte, esta sesión te ayuda a mirar la relación completa antes de decidir, ver qué está
+                pasando entre ustedes y darte una ruta a seguir en un proceso terapéutico.
               </p>
               <ConsejeriaForm />
             </section>
@@ -117,7 +115,7 @@ export default function ConsejeriaPage() {
               <FotoMovil src="/fotos/laptop-cuaderno.jpg" alt="Una laptop y un cuaderno abierto sobre una mesa redonda junto a la ventana al atardecer, con flores amarillas, dos tazas y una cruz de madera en el alféizar" />
               <div data-aparece>
                 <h2 id="t-sesion" className={s.h2}>
-                  Qué pasa en los treinta minutos
+                  Qué pasa en los veinte minutos
                 </h2>
                 <p className={s.texto}>
                   Una conversación con estructura, por videollamada y desde tu casa, para que salgas con algo claro y no solo con
@@ -227,7 +225,7 @@ export default function ConsejeriaPage() {
           <div className={s.rutas} data-aparece>
             <div className={s.ruta}>
               <h3>Si ya sabes que necesitan ayuda</h3>
-              <p>Agenda la sesión de orientación: 30 minutos por videollamada, gratuita y sin compromiso.</p>
+              <p>Agenda la sesión de orientación: 20 minutos por videollamada, gratuita y sin compromiso.</p>
               <a className="btn" href="#agenda">
                 Agendar mi sesión gratuita
               </a>

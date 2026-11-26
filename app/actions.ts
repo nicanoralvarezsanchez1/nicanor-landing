@@ -171,8 +171,8 @@ async function cerrarLead(lead: LeadRow, campos: Partial<LeadRow>, nivel: Nivel)
     return { ok: false, error: ERROR_GUARDAR };
   }
 
-  // El mismo Lead que dispara el pixel, desde el servidor. Solo calificados y tibios:
-  // así la campaña optimiza hacia quienes sí quieren empezar un proceso.
+  // El mismo Lead que dispara el pixel, desde el servidor. Solo calificados (aceptaron
+  // el precio): así la campaña optimiza hacia quienes sí empiezan un proceso.
   if (optimizar) {
     after(() =>
       sendMetaEvent({

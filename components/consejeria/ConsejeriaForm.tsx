@@ -2,10 +2,10 @@
 
 import { useRef, useState } from "react";
 import { completarConsejeria, guardarContacto, type ContactoInput } from "@/app/actions";
-import { CalendlyInline } from "@/components/form/CalendlyInline";
+import { RedireccionWhatsapp } from "@/components/form/RedireccionWhatsapp";
 import {
   CONTACTO_VACIO,
-  CamposContacto,
+  CamposFrase,
   Opciones,
   Progreso,
   contactoValido,
@@ -16,6 +16,7 @@ import {
 import { whatsappLink } from "@/lib/config";
 import {
   DISPOSICION_OPTIONS,
+  DISPOSICION_ACLARACION,
   DISPOSICION_PREGUNTA,
   PROBLEMA_OPTIONS,
   QUIEN_BUSCA_OPTIONS,
@@ -117,12 +118,11 @@ export function ConsejeriaForm() {
 
       {paso === 0 && (
         <form className={s.pantalla} onSubmit={enviarContacto} noValidate>
-          <h2 className={s.pregunta}>Agenda tu sesión de consejería gratuita</h2>
-          <p className={s.ayuda}>30 minutos por videollamada. Empieza con tus datos: te tomará un minuto.</p>
-          <CamposContacto valor={contacto} onCambio={setContacto} />
+          <p className={s.subtitulo}>Gratuita · 20 minutos por videollamada</p>
+          <CamposFrase valor={contacto} onCambio={setContacto} />
           {error && <p className={s.error} role="alert">{error}</p>}
           <button className="btn btn-bloque" type="submit" disabled={enviando}>
-            {enviando ? "Guardando…" : "Continuar"}
+            {enviando ? "Guardando…" : "Quiero agendar mi sesión"}
           </button>
           <p className={s.privacidad}>Tus datos son confidenciales. Solo los usa Nicanor para contactarte.</p>
         </form>
@@ -160,7 +160,7 @@ export function ConsejeriaForm() {
       {paso === 5 && (
         <div className={s.pantalla} key="p5">
           <h2 className={s.pregunta}>{DISPOSICION_PREGUNTA}</h2>
-          <p className={s.ayuda}>La sesión de orientación es gratuita. Esto nos ayuda a preparar la conversación.</p>
+          <p className={s.aclaracion}>{DISPOSICION_ACLARACION}</p>
           <Opciones opciones={DISPOSICION_OPTIONS} valor={r.disposicion} onElegir={(v) => void terminar(v)} />
           {enviando && <p className={s.ayuda} style={{ marginTop: 14 }}>Guardando…</p>}
           {error && <p className={s.error} role="alert">{error}</p>}
@@ -173,33 +173,30 @@ export function ConsejeriaForm() {
         </button>
       )}
 
-      {paso === TOTAL && resultado?.optimizar && leadId.current && (
+      {paso === TOTAL && resultado && r.situacion && r.problema && r.quienBusca && r.urgencia && r.disposicion && (
         <div className={s.pantalla}>
-          <h2 className={s.pregunta}>{primerNombre}, elige el horario de tu sesión</h2>
-          <p className={s.ayuda}>Gratuita, por videollamada, 30 minutos.</p>
-          <CalendlyInline leadId={leadId.current} nombre={contacto.nombre} email={contacto.email} />
-        </div>
-      )}
-
-      {paso === TOTAL && resultado && !resultado.optimizar && (
-        <div className={s.pantalla}>
-          <h2 className={s.pregunta}>Gracias, {primerNombre}.</h2>
-          <p style={{ marginBottom: 18 }}>
-            Entiendo que por ahora buscas información. Puedes empezar con el autodiagnóstico gratuito para ver en qué etapa está tu
-            relación, y si luego quieres conversar, escríbeme.
+          <h2 className={s.pregunta}>Gracias, {primerNombre}. Ya tengo tus respuestas.</h2>
+          <ul className={s.resumen}>
+            <li>{r.situacion}</li>
+            <li>{r.problema}</li>
+            <li>Busca ayuda: {r.quienBusca.toLowerCase()}</li>
+            <li>{r.urgencia}</li>
+          </ul>
+          <p className={s.ayuda}>
+            Nicanor revisa tu caso y coordina contigo la sesión de orientación (20 minutos, gratuita) por WhatsApp.
           </p>
-          <a className="btn btn-bloque" href="/diagnostico">
-            Hacer el autodiagnóstico
-          </a>
-          <a
-            className="btn btn-claro btn-bloque"
-            style={{ marginTop: 10 }}
-            href={whatsappLink(`Hola Nicanor, soy ${primerNombre}. Tengo una consulta sobre la consejería de pareja.`)}
-            target="_blank"
-            rel="noopener"
-          >
-            Escribir por WhatsApp
-          </a>
+          <RedireccionWhatsapp
+            segundos={10}
+            mensaje={[
+              `Hola Nicanor, soy ${contacto.nombre.trim()}. Completé el formulario de la sesión de orientación gratuita.`,
+              "",
+              `• Situación: ${r.situacion}`,
+              `• Lo que pasa: ${r.problema}`,
+              `• Quién busca ayuda: ${r.quienBusca}`,
+              `• Urgencia: ${r.urgencia}`,
+              `• Inversión: ${r.disposicion}`,
+            ].join("\n")}
+          />
         </div>
       )}
     </div>

@@ -122,3 +122,60 @@ export function CamposContacto({ valor, onCambio }: { valor: Contacto; onCambio:
 }
 
 export { s as formStyles };
+
+/**
+ * Los mismos datos que CamposContacto, pero escritos como una frase que la
+ * persona completa: "Hola, mi nombre es ___…". Se lee como un mensaje y no
+ * como un trámite. Cada espacio tiene su etiqueta para lectores de pantalla.
+ */
+export function CamposFrase({ valor, onCambio }: { valor: Contacto; onCambio: (c: Contacto) => void }) {
+  const set = (k: keyof Contacto) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+    onCambio({ ...valor, [k]: e.target.value });
+  return (
+    <p className={s.frase}>
+      Hola, mi nombre es{" "}
+      <input
+        id="nombre"
+        aria-label="Tu nombre"
+        className={`${s.hueco} ${s.huecoNombre}`}
+        autoComplete="name"
+        value={valor.nombre}
+        onChange={set("nombre")}
+        placeholder="tu nombre"
+      />
+      , quisiera agendar una sesión de consejería gratuita. Mi WhatsApp es{" "}
+      <span className={s.huecoTel}>
+        <select aria-label="Código de país" className={`${s.hueco} ${s.huecoCodigo}`} value={valor.codigo} onChange={set("codigo")}>
+          {PAISES.map((p) => (
+            <option key={p.codigo} value={p.codigo} title={p.nombre}>
+              {p.codigo}
+            </option>
+          ))}
+        </select>
+        <input
+          id="numero"
+          aria-label="Tu número de WhatsApp"
+          className={`${s.hueco} ${s.huecoNumero}`}
+          inputMode="tel"
+          autoComplete="tel-national"
+          value={valor.numero}
+          onChange={set("numero")}
+          placeholder="999 999 999"
+        />
+      </span>{" "}
+      y mi correo es{" "}
+      <input
+        id="email"
+        aria-label="Tu correo"
+        className={`${s.hueco} ${s.huecoCorreo}`}
+        type="email"
+        inputMode="email"
+        autoComplete="email"
+        value={valor.email}
+        onChange={set("email")}
+        placeholder="tucorreo@gmail.com"
+      />
+      .
+    </p>
+  );
+}

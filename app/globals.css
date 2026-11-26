@@ -1,31 +1,32 @@
-/* Línea gráfica de Nicanor Álvarez. Fondo de piedra gris, tinta casi negra, azul (#0b7ebd) solo para la acción.
-   Los tonos de piedra salen de las fotos de ambiente (luz nublada de Lima). */
+/* Línea gráfica de Nicanor Álvarez. Fondo crema cálido, tinta casi negra, azul (#0b7ebd) del logo para la acción
+   y un acento terracota/miel que lo acompaña. Los tonos salen de las fotos de luz de mañana. */
 :root {
   --font-display: var(--font-montserrat);
   --font-texto: var(--font-montserrat);
-  --piedra: #e9e6e2;
-  --piedra-honda: #dcd7d0;
-  --papel: #f5f3f0;
-  --gris-noche: #5a5656;
+  --piedra: #f7efe3;
+  --piedra-honda: #ecdcc3;
+  --papel: #fffaf1;
+  --gris-noche: #5f544b;
   --noche: #231f20;
   --noche-hondo: #085f8f;
   --primario: #0b7ebd;        /* color principal: botones y barra de progreso */
   --primario-hover: #096aa0;  /* botón al pasar el mouse (texto blanco 5.9:1) */
   --primario-hondo: #085f8f;  /* textos, enlaces y detalles sobre fondo claro (contraste AA) */
   --primario-claro: #bfe2f3;
-  --oro: #b88a3e;
+  --oro: #e8a93f;          /* miel: detalles y subrayados, nunca texto pequeño */
+  --terracota: #a84a2a;     /* acento cálido para texto (contraste 5.3:1 sobre crema) */
   --oliva: #5f6b47;
   --marfil: #f5efe4;
   --marfil-hondo: #e9dfcc;
   --blanco: #fffdf9;
   --tinta: #231f20;
-  --tinta-suave: #5a5656;
-  --borde: #ddd2bd;
+  --tinta-suave: #5f544b;
+  --borde: #e3cfae;
   --error: #a32d2d;
 
   --radio: 6px;
   --radio-card: 14px;
-  --sombra: 0 18px 50px -24px rgba(30, 43, 69, 0.35);
+  --sombra: 0 18px 50px -24px rgba(120, 72, 28, 0.28);
   --max: 1120px;
 }
 
@@ -70,7 +71,7 @@ button { font: inherit; }
 .btn:active { transform: scale(0.98); }
 .btn:disabled { opacity: 0.6; cursor: wait; }
 .btn-claro { background: var(--piedra-honda); color: var(--tinta); }
-.btn-claro:hover { background: #cfc9c1; }
+.btn-claro:hover { background: #e2cfae; }
 .btn-bloque { width: 100%; }
 
 .sr-only {

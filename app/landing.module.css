@@ -1,5 +1,5 @@
 /* Pantalla dividida: foto fija a la izquierda, columna de lectura a la derecha (en escritorio).
-   Fondo de piedra, tinta casi negra, azul de marca, azul solo en la acción. Sin filetes, sin sombras, sin tarjetas. */
+   Fondo crema cálido, tinta casi negra, azul de marca, azul solo en la acción. Sin filetes, sin sombras, sin tarjetas. */
 
 .split { display: block; }
 .panel { display: none; }
@@ -65,7 +65,7 @@
 /* La sesión, en tres momentos */
 .sesion { list-style: none; padding: 0; margin: 40px 0 0; display: grid; gap: 8px; }
 .sesion li { display: grid; gap: 6px; background: var(--papel); padding: 22px 22px 24px; }
-.cuando { font-size: 17px; color: var(--primario-hondo); font-weight: 500; }
+.cuando { font-size: 17px; color: var(--terracota); font-weight: 600; }
 .sesion h3 { font-size: 24px; letter-spacing: -0.02em; }
 .sesion p { margin-top: 6px; max-width: 42ch; }
 
@@ -103,9 +103,9 @@
   position: relative;
   transition: background 0.2s;
 }
-.faq summary:hover { background: #ece9e4; }
+.faq summary:hover { background: #f6e8d2; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; position: absolute; right: 22px; top: 15px; font-size: 26px; color: var(--primario-hondo); }
+.faq summary::after { content: "+"; position: absolute; right: 22px; top: 15px; font-size: 26px; color: var(--terracota); }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { padding: 0 22px 22px; max-width: 48ch; }
 .seguridad { margin-top: 28px; font-size: 16px; color: var(--tinta-suave); max-width: 48ch; }

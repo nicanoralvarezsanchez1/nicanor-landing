@@ -59,6 +59,8 @@
 .frase[aria-pressed="true"] { color: var(--tinta); background: var(--piedra-honda); }
 .respuesta { background: var(--primario); color: #fff; padding: 28px 24px; display: grid; gap: 22px; justify-items: start; animation: respuesta 0.5s ease both; }
 .respuesta :global(.btn), .soloTexto :global(.btn) { background: #fff; color: var(--primario-hondo); }
+.respuesta { position: relative; }
+.respuesta::after { content: ""; position: absolute; top: 20px; right: 20px; width: 44px; height: 28px; background: url("/logo/isotipo-blanco.png") center / contain no-repeat; opacity: 0.85; }
 .respuesta p { font-size: 19px; line-height: 1.55; max-width: 44ch; }
 @keyframes respuesta { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
@@ -73,12 +75,15 @@
 .solo { background: var(--primario); color: #fff; display: grid; }
 .soloFoto { position: relative; aspect-ratio: 4 / 3; }
 .soloFoto img { object-fit: cover; }
-.soloTexto { padding: 56px 20px 72px; display: grid; gap: 20px; justify-items: start; align-content: center; }
+.soloTexto { position: relative; overflow: hidden; padding: 56px 20px 72px; display: grid; gap: 20px; justify-items: start; align-content: center; }
+.soloTexto > * { position: relative; z-index: 1; }
+.soloTexto::before { content: ""; position: absolute; right: -50px; bottom: -40px; width: min(380px, 70%); aspect-ratio: 775 / 489; background: url("/logo/isotipo-blanco.png") center / contain no-repeat; opacity: 0.12; pointer-events: none; }
 .soloTexto p { max-width: 44ch; font-size: 19px; }
 .soloTexto .btn { margin-top: 12px; }
 .h2Grande { font-size: clamp(31px, 4.3vw, 66px); line-height: 1.04; letter-spacing: -0.03em; max-width: 16ch; color: inherit; }
 
 /* ---------- Sobre Nicanor y la fe ---------- */
+.isoSello { display: block; width: auto; height: 36px; margin-bottom: 20px; }
 .cita {
   margin: 36px 0 0;
   padding: 28px 24px;
@@ -111,7 +116,9 @@
 .seguridad { margin-top: 28px; font-size: 16px; color: var(--tinta-suave); max-width: 48ch; }
 
 /* ---------- Cierre: dos caminos ---------- */
-.cierre { background: var(--piedra-honda); padding: 88px 20px; display: grid; gap: 48px; }
+.cierre { position: relative; overflow: hidden; background: var(--piedra-honda); padding: 88px 20px; display: grid; gap: 48px; }
+.cierre > * { position: relative; z-index: 1; }
+.cierre::before { content: ""; position: absolute; right: -60px; top: -30px; width: min(420px, 70%); aspect-ratio: 775 / 489; background: url("/logo/isotipo-azul.png") center / contain no-repeat; opacity: 0.08; pointer-events: none; }
 .rutas { display: grid; gap: 8px; }
 .ruta { background: var(--papel); padding: 28px 24px; display: grid; gap: 14px; justify-items: start; align-content: start; }
 .ruta h3 { font-size: 26px; letter-spacing: -0.02em; }
@@ -119,7 +126,9 @@
 .ruta .btn { margin-top: 10px; }
 
 /* ---------- Pie: el nombre a todo el ancho ---------- */
-.pie { background: var(--primario); color: #fff; padding: 56px 20px 104px; }
+.pie { position: relative; overflow: hidden; background: var(--primario-hondo); color: #fff; padding: 56px 20px 104px; }
+.pie > * { position: relative; z-index: 1; }
+.pie::before { content: ""; position: absolute; right: -70px; bottom: -80px; width: min(460px, 75%); aspect-ratio: 775 / 489; background: url("/logo/isotipo-blanco.png") center / contain no-repeat; opacity: 0.12; pointer-events: none; }
 .pieLogo { width: min(520px, 78%); height: auto; }
 .pieFila { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px 32px; justify-content: space-between; font-size: 16px; }
 .pieLinks { display: flex; gap: 24px; }

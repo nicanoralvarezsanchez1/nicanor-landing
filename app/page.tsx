@@ -165,6 +165,7 @@ export default function ConsejeriaPage() {
             <section className={s.seccion} id="nicanor" data-foto="nicanor" aria-labelledby="t-nicanor">
               <FotoMovil src="/nicanor.jpg" alt="Nicanor Álvarez, psicólogo" retrato />
               <div data-aparece>
+                <Image src="/logo/isotipo-azul.png" alt="" width={775} height={489} className={s.isoSello} />
                 <h2 id="t-nicanor" className={s.h2}>
                   Hola, soy Nicanor.
                 </h2>

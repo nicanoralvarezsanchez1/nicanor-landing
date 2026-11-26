@@ -81,8 +81,8 @@ export default function ConsejeriaPage() {
 
           <div className={s.columna}>
             <header className={s.barra}>
-              <Link href="/" className={s.marca} aria-label="Nicanor Álvarez, psicólogo católico">
-                <Image src="/logo/logotipo-azul.png" alt="Nicanor Álvarez, psicólogo católico" width={773} height={353} className={s.marcaLogo} priority />
+              <Link href="/" className={s.marca} aria-label="Nicanor Álvarez, psicólogo">
+                <Image src="/logo/logotipo-azul.png" alt="Nicanor Álvarez, psicólogo" width={773} height={353} className={s.marcaLogo} priority />
               </Link>
               <nav className={s.nav} aria-label="Secciones">
                 <a href="#sesion">La sesión</a>
@@ -242,7 +242,7 @@ export default function ConsejeriaPage() {
       </main>
 
       <footer className={s.pie}>
-        <Image src="/logo/logotipo-blanco.png" alt="Nicanor Álvarez, psicólogo católico" width={773} height={353} className={s.pieLogo} />
+        <Image src="/logo/logotipo-blanco.png" alt="Nicanor Álvarez, psicólogo" width={773} height={353} className={s.pieLogo} />
         <div className={s.pieFila}>
           <span>Psicoterapeuta católico: para personas y de pareja, online y presencial en Lima, Perú.</span>
           <span className={s.pieLinks}>

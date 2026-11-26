@@ -244,7 +244,7 @@ export default function ConsejeriaPage() {
       <footer className={s.pie}>
         <Image src="/logo/logotipo-blanco.png" alt="Nicanor Álvarez, psicólogo" width={773} height={353} className={s.pieLogo} />
         <div className={s.pieFila}>
-          <span>Psicólogo. Consejería de pareja online y presencial en Lima, Perú.</span>
+          <span>Psicoterapeuta católico: para personas y de pareja, online y presencial en Lima, Perú.</span>
           <span className={s.pieLinks}>
             <Link href="/privacidad">Privacidad</Link>
             <a href="https://www.instagram.com/nicanoralvarezpsicologo/" target="_blank" rel="noopener">

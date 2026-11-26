@@ -15,12 +15,12 @@ export default function DiagnosticoPage() {
     <div className={s.split}>
       <VistaContenido nombre="Diagnóstico Nicanor" />
       <div className={s.panel}>
-        <Image src="/fotos/tazas-mesa.jpg" alt="Dos tazas sobre la mesa de la cocina de noche, una llena y otra casi vacía, con un celular entre ambas" fill sizes="(min-width: 1000px) 50vw, 100vw" priority />
+        <Image src="/fotos/tazas-mesa.jpg" alt="Dos tazas humeantes sobre la mesa de la cocina por la mañana, junto a pan, fruta y un rosario, mientras las manos de un matrimonio se tocan" fill sizes="(min-width: 1000px) 50vw, 100vw" priority />
       </div>
       <div className={s.columna}>
         <header className={s.barra}>
-          <Link href="/" className={s.marca}>
-            Nicanor Álvarez
+          <Link href="/" className={s.marca} aria-label="Nicanor Álvarez, psicólogo">
+            <Image src="/logo/logotipo-azul.png" alt="Nicanor Álvarez, psicólogo" width={773} height={353} className={s.marcaLogo} priority />
           </Link>
           <Link href="/" className={s.enlace}>
             Sesión gratuita

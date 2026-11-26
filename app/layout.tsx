@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Literata } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { MetaPixelScript } from "@/components/MetaPixelScript";
 import "./globals.css";
 
-// Una sola familia para toda la página: Literata, serif de lectura con cortes de titular.
-const literata = Literata({
+// Una sola familia para toda la página: Montserrat, libre y muy cercana a Gilroy (la fuente del diseñador,
+// cuya licencia no permite publicarla en un repositorio abierto). 800 = Gilroy ExtraBold en titulares.
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600", "800"],
   style: ["normal", "italic"],
-  variable: "--font-literata",
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -33,7 +34,7 @@ export const viewport: Viewport = { themeColor: "#e9e6e2" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={literata.variable}>
+    <html lang="es" className={montserrat.variable}>
       <body>
         {children}
         <MetaPixelScript />

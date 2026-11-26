@@ -8,7 +8,7 @@ export default function Privacidad() {
     <>
       <Encabezado cta="Agenda gratis" href="/#agenda" />
       <main className="contenedor" style={{ maxWidth: 760, padding: "48px 20px 80px", display: "grid", gap: 16 }}>
-        <h1 style={{ fontSize: 36, color: "var(--noche)" }}>Política de privacidad</h1>
+        <h1 style={{ fontSize: 36, color: "var(--tinta)" }}>Política de privacidad</h1>
         <p>
           Esta página es de Nicanor Álvarez, psicólogo en Lima, Perú. Aquí explico qué datos recojo cuando completas el
           formulario de consejería o el autodiagnóstico, y para qué los uso.

@@ -13,14 +13,15 @@ import s from "./landing.module.css";
    con los objetos de la casa donde ocurre (dos sillas, dos tazas, una cama a medias, la llamada, la fe). */
 
 const FOTOS_INICIO: FotoPanel[] = [
-  { id: "sillas", src: "/fotos/sillones.jpg", alt: "Dos sillones azules frente a una ventana, con dos tazas de té sobre una mesa pequeña" },
-  { id: "tazas", src: "/fotos/tazas-mesa.jpg", alt: "Dos tazas sobre la mesa de la cocina de noche, una llena y otra casi vacía, con un celular entre ambas" },
-  { id: "llamada", src: "/fotos/laptop-cuaderno.jpg", alt: "Una laptop con la pantalla apagada y un cuaderno abierto sobre una mesa redonda junto a la ventana, con una cruz de madera en el alféizar y las luces de la ciudad al fondo" },
+  { id: "sillas", src: "/fotos/sillones.jpg", alt: "Dos sillones juntos frente a una ventana soleada, con una manta compartida, dos tazas humeantes y una cruz de madera en el alféizar" },
+  { id: "tazas", src: "/fotos/tazas-mesa.jpg", alt: "Dos tazas humeantes sobre la mesa de la cocina por la mañana, junto a pan, fruta y un rosario, mientras las manos de un matrimonio se tocan" },
+  { id: "llamada", src: "/fotos/laptop-cuaderno.jpg", alt: "Una laptop y un cuaderno abierto sobre una mesa redonda junto a la ventana al atardecer, con flores amarillas, dos tazas y una cruz de madera en el alféizar" },
 ];
 
 const FOTOS_NICANOR: FotoPanel[] = [
   { id: "nicanor", src: "/nicanor.jpg", alt: "Nicanor Álvarez, psicólogo", modo: "retrato" },
-  { id: "rosario", src: "/fotos/rosario-cuaderno.jpg", alt: "Un rosario de madera con cordón azul noche y un anillo de matrimonio sobre un cuaderno abierto" },
+  { id: "rosario", src: "/fotos/rosario-cuaderno.jpg", alt: "Las manos de un matrimonio juntas sobre un cuaderno abierto, sosteniendo un rosario de madera con cordón azul" },
+  { id: "faq", src: "/fotos/faq-camino.jpg", alt: "Una pareja camina de la mano por un sendero hacia una pequeña capilla blanca cubierta de buganvilias, al atardecer" },
 ];
 
 const SESION = [
@@ -80,8 +81,8 @@ export default function ConsejeriaPage() {
 
           <div className={s.columna}>
             <header className={s.barra}>
-              <Link href="/" className={s.marca}>
-                Nicanor Álvarez
+              <Link href="/" className={s.marca} aria-label="Nicanor Álvarez, psicólogo">
+                <Image src="/logo/logotipo-azul.png" alt="Nicanor Álvarez, psicólogo" width={773} height={353} className={s.marcaLogo} priority />
               </Link>
               <nav className={s.nav} aria-label="Secciones">
                 <a href="#sesion">La sesión</a>
@@ -100,7 +101,7 @@ export default function ConsejeriaPage() {
             </section>
 
             <section className={s.seccion} data-foto="tazas" aria-labelledby="t-frases">
-              <FotoMovil src="/fotos/tazas-mesa.jpg" alt="Dos tazas sobre la mesa de la cocina de noche, una llena y otra casi vacía, con un celular entre ambas" />
+              <FotoMovil src="/fotos/tazas-mesa.jpg" alt="Dos tazas humeantes sobre la mesa de la cocina por la mañana, junto a pan, fruta y un rosario, mientras las manos de un matrimonio se tocan" />
               <div data-aparece>
                 <h2 id="t-frases" className={s.h2}>
                   ¿Alguna de estas frases es tuya?
@@ -111,7 +112,7 @@ export default function ConsejeriaPage() {
             </section>
 
             <section className={s.seccion} id="sesion" data-foto="llamada" aria-labelledby="t-sesion">
-              <FotoMovil src="/fotos/laptop-cuaderno.jpg" alt="Una laptop con la pantalla apagada y un cuaderno abierto sobre una mesa redonda junto a la ventana, con una cruz de madera en el alféizar y las luces de la ciudad al fondo" />
+              <FotoMovil src="/fotos/laptop-cuaderno.jpg" alt="Una laptop y un cuaderno abierto sobre una mesa redonda junto a la ventana al atardecer, con flores amarillas, dos tazas y una cruz de madera en el alféizar" />
               <div data-aparece>
                 <h2 id="t-sesion" className={s.h2}>
                   Qué pasa en los veinte minutos
@@ -138,7 +139,7 @@ export default function ConsejeriaPage() {
 
         <section className={s.solo} aria-labelledby="t-solo">
           <div className={s.soloFoto}>
-            <Image src="/fotos/cama-manana.jpg" alt="Una cama doble con un lado sin tocar y el otro con las sábanas revueltas, bajo un crucifijo en la pared, en la luz gris de la mañana" fill sizes="(min-width: 1000px) 40vw, 100vw" />
+            <Image src="/fotos/cama-manana.jpg" alt="Una cama doble bien tendida, con un crucifijo sobre el cabecero y un rosario junto a un vaso de agua, en la luz cálida de la mañana" fill sizes="(min-width: 1000px) 40vw, 100vw" />
           </div>
           <div className={s.soloTexto} data-aparece>
             <h2 id="t-solo" className={s.h2Grande}>
@@ -162,6 +163,7 @@ export default function ConsejeriaPage() {
             <section className={s.seccion} id="nicanor" data-foto="nicanor" aria-labelledby="t-nicanor">
               <FotoMovil src="/nicanor.jpg" alt="Nicanor Álvarez, psicólogo" retrato />
               <div data-aparece>
+                <Image src="/logo/isotipo-azul.png" alt="" width={775} height={489} className={s.isoSello} />
                 <h2 id="t-nicanor" className={s.h2}>
                   Hola, soy Nicanor.
                 </h2>
@@ -177,7 +179,7 @@ export default function ConsejeriaPage() {
             </section>
 
             <section className={s.seccion} data-foto="rosario" aria-labelledby="t-fe">
-              <FotoMovil src="/fotos/rosario-cuaderno.jpg" alt="Un rosario de madera con cordón azul noche y un anillo de matrimonio sobre un cuaderno abierto" />
+              <FotoMovil src="/fotos/rosario-cuaderno.jpg" alt="Las manos de un matrimonio juntas sobre un cuaderno abierto, sosteniendo un rosario de madera con cordón azul" />
               <div data-aparece>
                 <h2 id="t-fe" className={s.h2}>
                   Si tu fe importa, tiene lugar aquí
@@ -193,7 +195,8 @@ export default function ConsejeriaPage() {
               </div>
             </section>
 
-            <section className={s.seccion} data-foto="rosario" aria-labelledby="t-faq">
+            <section className={s.seccion} data-foto="faq" aria-labelledby="t-faq">
+              <FotoMovil src="/fotos/faq-camino.jpg" alt="Una pareja camina de la mano por un sendero hacia una pequeña capilla blanca cubierta de buganvilias, al atardecer" />
               <div data-aparece>
                 <h2 id="t-faq" className={s.h2}>
                   Preguntas frecuentes
@@ -239,7 +242,7 @@ export default function ConsejeriaPage() {
       </main>
 
       <footer className={s.pie}>
-        <p className={s.pieNombre}>Nicanor Álvarez</p>
+        <Image src="/logo/logotipo-blanco.png" alt="Nicanor Álvarez, psicólogo" width={773} height={353} className={s.pieLogo} />
         <div className={s.pieFila}>
           <span>Psicólogo. Consejería de pareja online y presencial en Lima, Perú.</span>
           <span className={s.pieLinks}>
